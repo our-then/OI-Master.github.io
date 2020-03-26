@@ -1,0 +1,452 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    Codeforces 命令行工具 | TianyuZhou
+</title>
+<link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1585197024259">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://OI-Master.github.io/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://OI-Master.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                
+
+                    
+                            
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://OI-Master.github.io">
+                <img class="avatar" src="https://OI-Master.github.io/images/avatar.png?v=1585197024259" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    TianyuZhou
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io" class="menu">
+                                    主页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/post/luo-gu-shi-lian-chang" class="menu">
+                                    洛谷试炼场
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            Codeforces 命令行工具
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2020-02-24</time>
+                            
+                                <a href="https://OI-Master.github.io/tag/E6yXG6rkR/" class="post-tag i-tag
+                            i-tag-info">
+                            #Codeforces
+                        </a>
+                                
+                                <a href="https://OI-Master.github.io/tag/PvNVZtO8R1/" class="post-tag i-tag
+                            i-tag-">
+                            #工具
+                        </a>
+                                
+                        </div>
+                        
+                                <div class="post-content">
+                                    <p>经常有人抱怨，说 Codeforces 加载得太慢了，比赛的时候常常爆掉。那么，如何解决这一问题呢？<br>
+其实，有一个很好的助理：Codeforces 命令行工具 。</p>
+<!-- more -->
+<h2 id="特点">特点</h2>
+<ol>
+<li>支持 Codeforces 中的所有编程语言</li>
+<li>支持 contests 和 gym</li>
+<li>提交代码</li>
+<li>动态刷新提交后的情况</li>
+<li>拉取问题的样例</li>
+<li>本地编译和测试样例</li>
+<li>拉取某人的所有代码</li>
+<li>从指定模板生成代码（包括时间戳，作者等信息）</li>
+<li>列出某场比赛的所有题目的整体信息</li>
+<li>用默认的网页浏览器打开题目页面、榜单、提交页面等</li>
+<li>丰富多彩的命令行</li>
+</ol>
+<h2 id="使用方法">使用方法</h2>
+<p>我们现在简易地拟一场比赛的流程。</p>
+<h3 id="动图版">动图版</h3>
+<figure data-type="image" tabindex="1"><img src="https://OI-Master.github.io/post-images/1582553863230.gif" alt="Codeforces tool" loading="lazy"></figure>
+<h3 id="文字版">文字版</h3>
+<pre><code>cf race 1136
+</code></pre>
+<p>要开始打 1136 这场比赛了！其中 1136 可以从比赛的链接获取，比方说这个例子的比赛链接就为 <a href="https://codeforces.com/contest/1136">https://codeforces.com/contest/1136</a> 。</p>
+<p>如果比赛还未开始，则该命令会进行倒计时。比赛已开始或倒计时完后，工具会自动用默认浏览器打开比赛的题目界面与所有题目页面，并拉取样例到本地。</p>
+<pre><code>cd 1136/a
+</code></pre>
+<p>进入 A 题的目录，此时该目录下会包含该题的样例。</p>
+<pre><code>cf gen
+</code></pre>
+<p>用默认模板生成一份代码，代码文件名默认是题目的 ID。</p>
+<pre><code>vim a.cpp
+</code></pre>
+<p>用 Vim 写代码（这取决于你）。</p>
+<pre><code>cf test
+</code></pre>
+<p>编译并测试样例。</p>
+<pre><code>cf submit
+</code></pre>
+<p>提交代码。</p>
+<pre><code>cf list
+</code></pre>
+<p>查看当前比赛各个题目的信息。</p>
+<pre><code>cf stand
+</code></pre>
+<p>用浏览器打开榜单，查看排名。</p>
+<h3 id="详细版">详细版</h3>
+<p>有可能命令会更新，所以上面的命令会无法使用。这里挂一个最新的命令大全。</p>
+<pre><code>首先你得用 &quot;cf config&quot; 命令来配置一下用户名、密码和代码模板。
+
+如果你想用本工具打比赛，那么最好用 &quot;cf race&quot; 命令。
+
+支持的命令:
+  cf config
+  cf submit [-f &lt;file&gt;] [&lt;specifier&gt;...]
+  cf list [&lt;specifier&gt;...]
+  cf parse [&lt;specifier&gt;...]
+  cf gen [&lt;alias&gt;]
+  cf test [&lt;file&gt;]
+  cf watch [all] [&lt;specifier&gt;...]
+  cf open [&lt;specifier&gt;...]
+  cf stand [&lt;specifier&gt;...]
+  cf sid [&lt;specifier&gt;...]
+  cf race [&lt;specifier&gt;...]
+  cf pull [ac] [&lt;specifier&gt;...]
+  cf clone [ac] [&lt;handle&gt;]
+  cf upgrade
+
+参数:
+  -h --help            帮助。
+  --version            显示版本。
+  -f &lt;file&gt;, --file &lt;file&gt;, &lt;file&gt;
+                       文件的路径，例如 &quot;a.cpp&quot;、&quot;./temp/a.cpp&quot;
+  &lt;specifier&gt;          任何有用的文本，例如
+                       &quot;https://codeforces.com/contest/100&quot;、
+                       &quot;https://codeforces.com/contest/180/problem/A&quot;、
+                       &quot;https://codeforces.com/group/Cw4JRyRGXR/contest/269760&quot;、
+                       &quot;1111A&quot;、&quot;1111&quot;、&quot;a&quot;、&quot;Cw4JRyRGXR&quot;。
+                       你可以任意组合多个 &lt;specifier&gt; 来说明你的需求。
+  &lt;alias&gt;              模板的名字，比如 &quot;cpp&quot;。
+  ac                   是否只获取 Accpeted 的代码。
+
+例子:
+  cf config            配置 cf-tool。
+  cf submit            cf 会自动检测你需要提交的文件。
+  cf submit -f a.cpp
+  cf submit https://codeforces.com/contest/100/A
+  cf submit -f a.cpp 100A 
+  cf submit -f a.cpp 100 a
+  cf submit contest 100 a
+  cf submit gym 100001 a
+  cf list              列出当前比赛的题目通过、时限等信息。
+  cf list 1119         
+  cf parse 100         获取 contest 100 的所有题目的样例到文件夹
+                       &quot;{cf}/{contest}/100/&quot; 中。
+  cf parse gym 100001a
+                       获取 gym 100001 的 a 题的样例到文件夹
+                       &quot;{cf}/{gym}/100001/a&quot; 中。
+  cf parse gym 100001
+                       获取 gym 100001 的所有题目的样例到文件夹
+                       &quot;{cf}/{gym}/100001&quot; 中。
+  cf parse             获取当前比赛的当前题目到当前文件夹下。
+  cf gen               用默认的模板生成一份代码到当前文件夹下。
+  cf gen cpp           用名字为 &quot;cpp&quot; 的模板来生成一份代码到当前文件夹下。
+  cf test              在当前目录下执行模板里的命令，并测试全部样例。如果你想加一组新的测试数据，
+                       新建两个文件 &quot;inK.txt&quot; 和 &quot;ansK.txt&quot; 即可，其中 K 是包含 0~9 的字符串。
+  cf watch             查看自己在当前比赛的最后 10 次提交结果。
+  cf watch all         查看自己在当前比赛的全部提交结果
+  cf open 1136a        用默认的浏览器打开比赛 contest 1136, problem a.
+  cf open gym 100136   用默认的浏览器打开比赛 gym 100136.
+  cf stand             用默认的浏览器打开当前比赛的榜单。
+  cf sid 52531875      用默认的浏览器打开 52531875 这个提交页面。
+  cf sid               打开最后一次提交的页面。
+  cf race 1136         如果比赛还未开始且进入倒计时，则该命令会倒计时。倒计时完后，会自动打开一些
+                       题目页面并拉取样例。
+  cf pull 100          拉取比赛 id 为 100 每道题的最新代码到文件夹 &quot;./100/&lt;problem-id&gt;&quot; 下。
+  cf pull 100 a        拉取比赛 id 为 100 的题目 a 的最新代码到文件夹 &quot;./100/a&quot; 下。
+  cf pull ac 100 a     拉取比赛 id 为 100 的题目 a 的 AC 代码。
+  cf pull              拉取当前题目的最新代码到当前文件夹下。
+  cf clone xalanq      拉取 xalanq 的所有提交代码。
+  cf upgrade           从 GitHub 更新 &quot;cf&quot; 到最新版。
+
+储存的文件:
+  cf 会保存数据到以下文件：
+
+  &quot;~/.cf/config&quot;        这是配置文件，包括模版等信息。
+  &quot;~/.cf/session&quot;       这是会话文件，包括 cookies、用户名、密码等。
+
+  &quot;~&quot; 这个符号是系统当前用户的主文件夹。
+
+模板:
+  你可以在你的代码里插入一些标识符，当用 cf 生成代码的时候，标识符会按照以下规则替换：
+
+  $%U%$   用户名 (例如 xalanq)
+  $%Y%$   年  (例如 2019)
+  $%M%$   月  (例如 04)
+  $%D%$   日  (例如 09)
+  $%h%$   时  (例如 08)
+  $%m%$   分  (例如 05)
+  $%s%$   秒  (例如 00)
+
+模板内的脚本:
+  模板支持三个脚本命令，当使用 &quot;cf test&quot; 时会依次执行：
+    - before_script   (只会执行一次)
+    - script          (有多少个样例就会执行多少次)
+    - after_script    (只会执行一次)
+  &quot;before_script&quot; 或者 &quot;after_script&quot; 你可以根据需要来设置，也可以设置为空。
+  在 &quot;script&quot; 里你必须要运行你的程序，通过标准 IO 来输入/输出数据（不用重定向）。
+
+  你在这些脚本命令里也能插入一些标识符，这些标识符会按照以下规则替换：
+  
+  $%path%$   代码的路径 (不包括 $%full%$， 比如 &quot;/home/xalanq/&quot;)
+  $%full%$   代码的文件名 (比如 &quot;a.cpp&quot;)
+  $%file%$   代码的文件名 (不包括后缀，比如 &quot;a&quot;)
+  $%rand%$   一个长度为 8 的随机字符串 (只包括 &quot;a-z&quot; &quot;0-9&quot; 范围内的字符)
+</code></pre>
+<h2 id="配置模板">配置模板</h2>
+<p>当模板被 cf gen 生成时，所有模板内部的占位符会替换成相应的内容，就像 C 语言里的 <code>printf</code> 一样。<br>
+规则如下：</p>
+<pre><code>$%U%$   用户名
+$%Y%$   年  (e.g. 2019)
+$%M%$   月  (e.g. 04)
+$%D%$   日  (e.g. 09)
+$%h%$   时  (e.g. 08)
+$%m%$   分  (e.g. 05)
+$%s%$   秒  (e.g. 00)
+</code></pre>
+<p>例如，这就是一个参考模板：</p>
+<pre><code>/* Generated by powerful Codeforces Tool
+ * You can download the binary file in here https://github.com/xalanq/cf-tool
+ * Author: $%U%$
+ * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+**/
+
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    return 0;
+}
+</code></pre>
+<h2 id="安装">安装</h2>
+<p>说了这么多了，激动人心的时刻到了！<br>
+你可以从<a href="https://github.com/xalanq/cf-tool/releases">这里</a>直接下载一个可执行文件，直接用就好啦。</p>
+<p>或者你可以把整个 repo 给 clone 下来，然后自己编译 <strong>go &gt;= 1.12</strong>：</p>
+<pre><code>git clone https://github.com/xalanq/cf-tool
+cd cf-tool
+go build -ldflags &quot;-s -w&quot; cf.go
+</code></pre>
+<h2 id="faq">FAQ</h2>
+<h3 id="我双击了这个程序但是没啥效果">我双击了这个程序但是没啥效果</h3>
+<p>Codeforces Tool 是命令行界面的工具，你应该在终端里运行这个工具。</p>
+<h3 id="我无法使用-cf-这个命令">我无法使用 cf 这个命令</h3>
+<p>你应该将 cf 这个程序放到一个已经加入到系统变量 PATH 的路径里 (比如说 Linux 里的 <code>/usr/bin/</code> )。</p>
+<p>或者你直接去搜 &quot;怎样添加路径到系统变量 PATH&quot;。</p>
+<h3 id="如何加一个新的测试数据">如何加一个新的测试数据</h3>
+<p>新建两个额外的测试数据文件 <code>inK.txt</code> 和 <code>ansK.txt</code> （K 是包含 0~9 的字符串）。</p>
+<p>在终端里启用 tab 补全命令<br>
+使用这个工具 <code>Infinidat/infi.docopt_completion</code> 即可。</p>
+<p>注意：如果有一个新版本发布（尤其是添加了新命令），你应该重新运行 <code>docopt-completion cf</code> 。</p>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%89%B9%E7%82%B9">特点</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a>
+<ul>
+<li><a href="#%E5%8A%A8%E5%9B%BE%E7%89%88">动图版</a></li>
+<li><a href="#%E6%96%87%E5%AD%97%E7%89%88">文字版</a></li>
+<li><a href="#%E8%AF%A6%E7%BB%86%E7%89%88">详细版</a></li>
+</ul>
+</li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF">配置模板</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#faq">FAQ</a>
+<ul>
+<li><a href="#%E6%88%91%E5%8F%8C%E5%87%BB%E4%BA%86%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F%E4%BD%86%E6%98%AF%E6%B2%A1%E5%95%A5%E6%95%88%E6%9E%9C">我双击了这个程序但是没啥效果</a></li>
+<li><a href="#%E6%88%91%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8-cf-%E8%BF%99%E4%B8%AA%E5%91%BD%E4%BB%A4">我无法使用 cf 这个命令</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE">如何加一个新的测试数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
+    </div>
+    
+                            
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  访问量：<br>
+<a href="http://flagcounter.me/details/bs3"><img src="http://flagcounter.me/bs3/" alt="Flag Counter"></a> | 
+  <a class="rss" href="https://OI-Master.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+        
+            <script>
+    window.onload = function() {
+        var gitalk = new Gitalk({
+            clientID: 'f56ca716e8d8f23c4cd7',
+            clientSecret: '0a02a6923e6406cc4f01c2f199f477bd8b78027f',
+            repo: 'gitalk',
+            owner: 'OI-Master',
+            admin: ['OI-Master'],
+            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    }
+</script>
+                
+
+                    
+                                
+</body>
+
+</html>

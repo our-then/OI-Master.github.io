@@ -1,0 +1,358 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    用 C 语言实现数独 | TianyuZhou
+</title>
+<link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1585197024259">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://OI-Master.github.io/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://OI-Master.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                
+
+                    
+                            
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://OI-Master.github.io">
+                <img class="avatar" src="https://OI-Master.github.io/images/avatar.png?v=1585197024259" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    TianyuZhou
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io" class="menu">
+                                    主页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/post/luo-gu-shi-lian-chang" class="menu">
+                                    洛谷试炼场
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            用 C 语言实现数独
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2020-02-29</time>
+                            
+                                <a href="https://OI-Master.github.io/tag/QTCptIBFw/" class="post-tag i-tag
+                            i-tag-success">
+                            #编程
+                        </a>
+                                
+                                <a href="https://OI-Master.github.io/tag/tJmZ1MkLxq/" class="post-tag i-tag
+                            i-tag-other_3">
+                            #数独
+                        </a>
+                                
+                        </div>
+                        
+                                <div class="post-content">
+                                    <p>如何用 C 语言实现数独呢？本文将会详细为你讲解。</p>
+<!-- more -->
+<h2 id="规则">规则</h2>
+<h3 id="方格">方格</h3>
+<p>水平方向有九横行，垂直方向有九纵列的矩形，画分八十一个小正方形，称为九宫格（Grid），如图一所示，是数独（Sudoku）的作用范围。<br>
+<img src="https://OI-Master.github.io/post-images/1582963539786.png" alt="图一" loading="lazy"></p>
+<h3 id="行">行</h3>
+<p>水平方向的每一横行有九格，每一横行称为行（Row），如图二所示。<br>
+<img src="https://OI-Master.github.io/post-images/1582963561979.png" alt="图二" loading="lazy"></p>
+<h3 id="列">列</h3>
+<p>垂直方向的每一纵列有九格，每一纵列称为列（Column），如图三所示。<br>
+<img src="https://OI-Master.github.io/post-images/1582963576536.png" alt="图三" loading="lazy"></p>
+<h3 id="宫">宫</h3>
+<p>三行与三列相交之处有九格，每一单元称为小九宫（Box、Block），简称宫，如图四所示）。<br>
+<img src="https://OI-Master.github.io/post-images/1582963602045.png" alt="图四" loading="lazy"></p>
+<h3 id="组成">组成</h3>
+<p>上述行、列、宫、单元格统称为单元（Unit）；而行、列、宫统称为区域（Region）。</p>
+<h3 id="区块">区块</h3>
+<p>由三个连续宫组成大行列（Chute），分大行（Floor）及大列（Tower）。<br>
+第一大行：由第一宫、第二宫、第三宫组成。<br>
+第二大行：由第四宫、第五宫、第六宫组成。<br>
+第三大行：由第七宫、第八宫、第九宫组成。<br>
+第一大列：由第一宫、第四宫、第七宫组成。<br>
+第二大列：由第二宫、第五宫、第八宫组成。<br>
+第三大列：由第三宫、第六宫、第九宫组成。</p>
+<h3 id="格位编号">格位编号</h3>
+<p>格位按所处的行列单元赋予坐标值，如图五所示。<br>
+<img src="https://OI-Master.github.io/post-images/1582963634065.png" alt="图五" loading="lazy"><br>
+坐标有多种标示法，有横行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>−</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">A-I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> ，纵列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">1-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> （如中国），也有横行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">1-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> ，纵列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>−</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">A-I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> （如日本），这两种标示容易混淆，故最被广泛使用的是横行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mn>1</mn><mo>−</mo><mi>R</mi><mn>9</mn></mrow><annotation encoding="application/x-tex">R1-R9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">9</span></span></span></span> ，纵列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mn>1</mn><mo>−</mo><mi>C</mi><mn>9</mn></mrow><annotation encoding="application/x-tex">C1-C9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord">9</span></span></span></span> 的标示法。<br>
+提示数<br>
+在九宫格的格位填上一些数字，做为填数判断的线索（Hint），称为提示数（Clue），如图六所示。<br>
+<img src="https://OI-Master.github.io/post-images/1582963649005.png" alt="图六" loading="lazy"></p>
+<h3 id="要求">要求</h3>
+<p>我们需要干的就是使每行、每列与每宫的数字均为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">1-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> ，且不重复。</p>
+<h2 id="如何解题">如何解题</h2>
+<p>人类解数独的方法并不适合计算机，因为人类的逻辑不好让计算机模拟，就像我们现在还无法制作真正意义上的“人工智能”。但是计算机的运算速度极快，且毫无情感也不偷懒，所以现在这道难题就可以当作一道简单的枚举题。<br>
+枚举是很容易的，你只需要想办法记住所有的空坐标，然后挨个枚举，当完全填完后，就可以输出数独了。我们可以用 深度优先搜索（dfs） 来完成这个工作，但是唯一的困难就是检验。<br>
+我们可以先看列，把列全扫一遍，然后再扫行，确定在列与行中没有重复后，再看宫，宫的起始坐标不难求，实在不行可以打表 <s>有点夸张</s> ，在源代码中会介绍。</p>
+<h2 id="源代码">源代码</h2>
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;stdbool.h&gt;
+int s[10][10];
+int x[82];
+int y[82];
+int n;
+int cnt;
+inline bool check(int x,int y){
+	int i;
+	int j;
+	const int xhead=(x-1)/3*3+1;
+	const int yhead=(y-1)/3*3+1;
+	for(i=1;i&lt;10;++i){
+		if(i!=x&amp;&amp;s[i][y]==s[x][y])
+			return false;
+		if(i!=y&amp;&amp;s[x][i]==s[x][y])
+			return false;
+	}
+	for(i=xhead;i&lt;xhead+3;++i)
+		for(j=yhead;j&lt;yhead+3;++j)
+			if((i!=x||j!=y)&amp;&amp;s[i][j]==s[x][y])
+				return false;
+	return true;
+}
+void dfs(int k){
+	int i;
+	int j;
+	if(k==n+1){
+		++cnt;
+		putchar('\n');
+		for(i=1;i&lt;10;++i){
+			for(j=1;j&lt;10;++j)
+				putchar(s[i][j]+'0');
+			putchar('\n');
+		}
+		return;
+	}
+	i=x[k];
+	j=y[k];
+	for(s[i][j]=1;s[i][j]&lt;10;++s[i][j])
+		if(check(i,j))
+			dfs(k+1);
+	s[i][j]=0;
+}
+int main(){
+	int i;
+	int j;
+	for(i=1;i&lt;10;++i){
+		for(j=1;j&lt;10;++j){
+			s[i][j]=getchar()-'0';
+			if(!s[i][j]){
+				++n;
+				x[n]=i;
+				y[n]=j;
+			}
+		}
+		getchar();
+	}
+	dfs(1);
+	if(!cnt)
+		puts(&quot;Error&quot;);
+	if(cnt&gt;1)
+		printf(&quot;Total: %d\n&quot;,cnt);
+	return 0;
+}
+</code></pre>
+<p><strong>如果需要引入源代码，请注明出处！</strong></p>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://OI-Master.github.io/post/codeforces-ming-ling-xing-gong-ju/">
+                                <h3 class="post-title">
+                                    Codeforces 命令行工具
+                                </h3>
+                            </a>
+                        </div>
+                        
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%A7%84%E5%88%99">规则</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%A0%BC">方格</a></li>
+<li><a href="#%E8%A1%8C">行</a></li>
+<li><a href="#%E5%88%97">列</a></li>
+<li><a href="#%E5%AE%AB">宫</a></li>
+<li><a href="#%E7%BB%84%E6%88%90">组成</a></li>
+<li><a href="#%E5%8C%BA%E5%9D%97">区块</a></li>
+<li><a href="#%E6%A0%BC%E4%BD%8D%E7%BC%96%E5%8F%B7">格位编号</a></li>
+<li><a href="#%E8%A6%81%E6%B1%82">要求</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E9%A2%98">如何解题</a></li>
+<li><a href="#%E6%BA%90%E4%BB%A3%E7%A0%81">源代码</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
+    </div>
+    
+                            
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  访问量：<br>
+<a href="http://flagcounter.me/details/bs3"><img src="http://flagcounter.me/bs3/" alt="Flag Counter"></a> | 
+  <a class="rss" href="https://OI-Master.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+        
+            <script>
+    window.onload = function() {
+        var gitalk = new Gitalk({
+            clientID: 'f56ca716e8d8f23c4cd7',
+            clientSecret: '0a02a6923e6406cc4f01c2f199f477bd8b78027f',
+            repo: 'gitalk',
+            owner: 'OI-Master',
+            admin: ['OI-Master'],
+            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    }
+</script>
+                
+
+                    
+                                
+</body>
+
+</html>
