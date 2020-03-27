@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-03-27T01:53:38.750Z</updated>
+    <updated>2020-03-27T02:16:03.409Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -16,9 +16,9 @@
         <link href="https://OI-Master.github.io/post/da-jian-zi-ji-de-online-judge/">
         </link>
         <updated>2020-03-26T04:13:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>很多人对于做题有点厌烦，但是，如果让你出题给别人做那么可能会很有意思。可是，出题只能出在一些别人的OJ上，甚至只能在自己的Word文档里出。今天我教大家一个厉害点的，叫做搭建自己的 Online Judge ！</p>
+        <summary type="html"><![CDATA[<p>很多人对于做题有点厌烦，但是，如果让你出题给别人做那么可能会很有意思。可是，出题只能出在一些别人的 OJ 上，甚至只能在自己的 Word 文档里出。今天我教大家一个厉害点的，叫做搭建自己的 Online Judge ！</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>很多人对于做题有点厌烦，但是，如果让你出题给别人做那么可能会很有意思。可是，出题只能出在一些别人的OJ上，甚至只能在自己的Word文档里出。今天我教大家一个厉害点的，叫做搭建自己的 Online Judge ！</p>
+        <content type="html"><![CDATA[<p>很多人对于做题有点厌烦，但是，如果让你出题给别人做那么可能会很有意思。可是，出题只能出在一些别人的 OJ 上，甚至只能在自己的 Word 文档里出。今天我教大家一个厉害点的，叫做搭建自己的 Online Judge ！</p>
 <!-- more -->
 <h2 id="准备">准备</h2>
 <p>额，当然是一台服务器啦，我们要一个无操作系统、纯净的服务器。如果你实在是买不起像我一样，那么就可以在虚拟机上搭建。<br>
@@ -37,24 +37,24 @@
 打开了吧？现在看见左边那一栏了吗？选择“新建虚拟机”，会弹出一个窗口，选择第二个选项，然后路径找到刚刚下载下来的 iso 文件，点击下一步。<br>
 接下来，请输入 OJ 的电脑全名和用户名密码。全名可以随便起（中文除外），但是用户名只能为小写字母，不能为 root 。<br>
 然后回让你确定虚拟机的名称。建议把它放在一个空间充足的盘里。<br>
-它又会让你设置磁盘容量。很多人看到 20GB 这个大数会打个疙瘩，以为这样会很快把磁盘消耗完毕。其实操作完后它并不会在磁盘里创建一个 20GB 的文件，而是通过需求慢慢增长。换句话说，这就是你对虚拟机的容量最大上限。<br>
+它又会让你设置磁盘容量。很多人看到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>20</mn></mrow><annotation encoding="application/x-tex">20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span></span></span></span> GB 这个大数会打个疙瘩，以为这样会很快把磁盘消耗完毕。其实操作完后它并不会在磁盘里创建一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>20</mn></mrow><annotation encoding="application/x-tex">20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span></span></span></span> GB 的文件，而是通过需求慢慢增长。换句话说，这就是你对虚拟机的容量最大上限。<br>
 如果弹出了一个选项框询问是否安装“VMware Tools for Linux”，请选择“下载并安装”。<br>
 等待 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>15</mn></mrow><annotation encoding="application/x-tex">15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span></span></span></span> 分钟-？天，虚拟机的系统装好了。</p>
 </blockquote>
 <h2 id="搭oj">搭OJ</h2>
 <p>赶紧撸起袖子，现在已经到高潮部分了！<br>
-由于Ubuntu系统自带的源是国外的的源，所以当我们安装软件时，下载的速度会非常慢。因此，我们需要更改系统源为国内的源。如果你不知道什么叫“源”，也不用担心，就按照我说的做就行了。<br>
+由于 Ubuntu 系统自带的源是国外的的源，所以当我们安装软件时，下载的速度会非常慢。因此，我们需要更改系统源为国内的源。如果你不知道什么叫“源”，也不用担心，就按照我说的做就行了。<br>
 点击右上角的齿轮按钮，选择“System Settings”。在随后弹出的界面中，选择“Software &amp; Updates”。请在弹出的窗口中将“Download from”改为“Other”。然后请选择“China”中的“mirrors.ustc.edu.cn”。输入密码就可以了。当你点击右下角的“Close”按键退出时，系统会弹出一个窗口。请点击“Reload”。这样，我们就成功地将源切换为中科大源了。当然，如果有的源离你更近，我也不拒绝换成其他的源，或不换。我这么做只是为了节约您的生命。<br>
 请在正在打OJ的机器中打开此网页，这个网址我相信你会背下来的。<br>
 右击桌面，打开终端（Open Terminal），将下面的命令拷在里面。</p>
 <pre><code>sudo su
 </code></pre>
-<p>然后会让你输入密码。你只需要输就行了。注意，这回不想登陆界面会给你·表示输入进去了，而是什么都不显示。你是看不到你输入的密码的，只要输入就行了。<br>
+<p>然后会让你输入密码。你只需要输就行了。注意，这回不想登录界面会给你显示“输入进去”的“*”，而是什么都不显示。你是看不到你输入的密码的，只要踏踏实实的输进去就行了。<br>
 然后请把下面的命令复制一下。</p>
 <pre><code>cd /
 apt update &amp;&amp; sudo apt install -y vim python-pip curl git
 </code></pre>
-<p>等到这个操作完成了，在输入下面的代码。</p>
+<p>等到这个操作完成了，再输入下面的代码。</p>
 <pre><code>curl -L https://get.daocloud.io/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
 </code></pre>
 <p>然后再等待系统完成，输入一条</p>
@@ -73,7 +73,7 @@ apt update &amp;&amp; sudo apt install -y vim python-pip curl git
 }
 </code></pre>
 <p>注意，不能直接叉掉，一定要先保存啊！<br>
-现在，我们可以正式的装 OJ 了。我们这回装的可不是那个经典的 HUSTOJ ，因为它的 UI 设计实在是太恶心了。我们用青岛大学的 Qduoj 。这个 OJ 又好看又简洁还实用，唯一的缺点就是没法用 Pascal。大家赶紧转到 C++ 吧！<br>
+现在，我们可以正式的装 OJ 了。我们这回装的可不是那个经典的 HUSTOJ ，因为它的 UI 设计实在是太恶心了。我们用青岛大学的 Qduoj 。这个 OJ 又好看又简洁还实用，唯一的缺点就是没法用 Pascal。请学 Pascal 的同学赶紧转到 C++ 吧！<br>
 请在终端中拷入</p>
 <pre><code>gedit /etc/hosts
 </code></pre>
@@ -90,11 +90,11 @@ apt update &amp;&amp; sudo apt install -y vim python-pip curl git
 </code></pre>
 <p>等待一会儿，看见四个 Done 的时候，就说明，你的 OJ 大功告成了！</p>
 <h2 id="打开oj">打开OJ</h2>
-<p>如果你用的是服务器，输入你的服务器的 公网IP 就行了。如果你用的是虚拟机，打开火狐浏览器，输入 127.0.0.1 就可以看到你的 OJ 了。如果没有，请多刷几遍，如果刷了半个小时还没有，重装一次吧。<br>
+<p>如果你用的是服务器，输入你的服务器的 公网IP 就行了。如果你用的是虚拟机，打开火狐浏览器，输入 127.0.0.1 就可以看到你的 OJ 了。如果没有，请多刷几遍，如果刷了半个小时还没有，那么就是装失败了。<br>
 点击右上角的“ Login ”，登录初始管理员账户。<br>
-账号：root<br>
-密码：rootroot<br>
-登陆后点击右上角的 root ，选择“ Setting ”就可以设置语言、昵称等信息。记得，一定要及时改root密码！随后的设置，就留给你自己去探索吧。</p>
+账号：<code>root</code><br>
+密码：<code>rootroot</code><br>
+登陆后点击右上角的 root ，选择“ Setting ”就可以设置语言、昵称等信息。记得，一定要及时改 root 密码！随后的设置，就留给你自己去探索吧。</p>
 <h2 id="结语">结语</h2>
 <p>感谢中国科学技术大学开源软件镜像站、DaoCloud、阿里巴巴开源镜像站和清华大学开源软件镜像站，没有他们的镜像服务，我们不可能得到如此稳定的连接，也不可能如此简单快捷地完成部署过程。<br>
 Qduoj的官方参考文档可以登陆：https://docs.onlinejudge.me/#/ 查看<br>
