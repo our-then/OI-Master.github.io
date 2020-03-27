@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-03-27T04:58:09.344Z</updated>
+    <updated>2020-03-27T06:09:06.637Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -1200,8 +1200,8 @@ int main() {
 </code></pre>
 <h2 id="安装">安装</h2>
 <p>说了这么多了，激动人心的时刻到了！<br>
-你可以从<a href="https://github.com/xalanq/cf-tool/releases">这里</a>直接下载一个可执行文件，直接用就好啦。</p>
-<p>或者你可以把整个 repo 给 clone 下来，然后自己编译 <strong>go &gt;= 1.12</strong>：</p>
+你可以从<a href="https://github.com/xalanq/cf-tool/releases">这里</a>直接下载一个可执行文件，直接用就好啦。如果你下载不下来，你可以试试 <a href="https://share.weiyun.com/5sYrcuZ">这里</a> ，密码：123456。不过不保证是最新版！<br>
+你干脆可以把整个 repo 给 clone 下来，然后自己编译 <strong>go &gt;= 1.12</strong>：</p>
 <pre><code>git clone https://github.com/xalanq/cf-tool
 cd cf-tool
 go build -ldflags &quot;-s -w&quot; cf.go
@@ -1210,13 +1210,13 @@ go build -ldflags &quot;-s -w&quot; cf.go
 <h3 id="我双击了这个程序但是没啥效果">我双击了这个程序但是没啥效果</h3>
 <p>Codeforces Tool 是命令行界面的工具，你应该在终端里运行这个工具。</p>
 <h3 id="我无法使用-cf-这个命令">我无法使用 cf 这个命令</h3>
-<p>你应该将 cf 这个程序放到一个已经加入到系统变量 PATH 的路径里 (比如说 Linux 里的 <code>/usr/bin/</code> )。</p>
-<p>或者你直接去搜 &quot;怎样添加路径到系统变量 PATH&quot;。</p>
+<p>你应该将 cf 这个程序放到一个已经加入到系统变量 PATH 的路径里 (比如说 Linux 里的 <code>/usr/bin/</code> )。<br>
+或者你直接去搜 &quot;怎样添加路径到系统变量 PATH&quot;。</p>
 <h3 id="如何加一个新的测试数据">如何加一个新的测试数据</h3>
-<p>新建两个额外的测试数据文件 <code>inK.txt</code> 和 <code>ansK.txt</code> （K 是包含 0~9 的字符串）。</p>
-<p>在终端里启用 tab 补全命令<br>
-使用这个工具 <code>Infinidat/infi.docopt_completion</code> 即可。</p>
-<p>注意：如果有一个新版本发布（尤其是添加了新命令），你应该重新运行 <code>docopt-completion cf</code> 。</p>
+<p>新建两个额外的测试数据文件 <code>inK.txt</code> 和 <code>ansK.txt</code> （K 是包含 0~9 的字符串）。<br>
+在终端里启用 tab 补全命令<br>
+使用这个工具 <code>Infinidat/infi.docopt_completion</code> 即可。<br>
+注意：如果有一个新版本发布（尤其是添加了新命令），你应该重新运行 <code>docopt-completion cf</code> 。</p>
 ]]></content>
     </entry>
 </feed>
