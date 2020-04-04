@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-04T07:17:26.406Z</updated>
+    <updated>2020-04-04T08:41:11.049Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://OI-Master.github.io/images/avatar.png</logo>
     <icon>https://OI-Master.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TianyuZhou</rights>
+    <entry>
+        <title type="html"><![CDATA[iframe 指南]]></title>
+        <id>https://OI-Master.github.io/post/iframe-zhi-nan/</id>
+        <link href="https://OI-Master.github.io/post/iframe-zhi-nan/">
+        </link>
+        <updated>2020-04-04T07:34:49.000Z</updated>
+        <summary type="html"><![CDATA[<p>iframe，一个强大的“小窗口”标签页。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>iframe，一个强大的“小窗口”标签页。</p>
+<!-- more -->
+<h2 id="预览">预览</h2>
+<iframe name="iframe" src="https://oi-master.github.io/" width="600px" height="500px"></iframe>
+<p>这是一个 iframe ，大家会发现，会有一个类似画中画的小窗口在网页上显示。</p>
+<h2 id="代码">代码</h2>
+<p>HTML 代码如下</p>
+<pre><code>&lt;iframe name=&quot;iframe&quot; src=&quot;https://oi-master.github.io/&quot; width=&quot;600px&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;&lt;br&gt;
+</code></pre>
+<p><code>src</code> 后面的链接可以自己改，<code>name</code> 就是这个 iframe 的名称，最好不要重复。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[搭建自己的 Online Judge]]></title>
         <id>https://OI-Master.github.io/post/da-jian-zi-ji-de-online-judge/</id>
@@ -1790,122 +1810,6 @@ int main(){
 <a href="https://OI-Master.github.io/files/breedflip_bronze_feb20.zip">Mad Scientist 测试数据</a><br>
 <a href="https://OI-Master.github.io/files/swap_bronze_feb20.zip">Swapity Swap 测试数据</a><br>
 好了，本文到此结束。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[用 C 语言实现数独]]></title>
-        <id>https://OI-Master.github.io/post/yong-c-yu-yan-shi-xian-shu-du/</id>
-        <link href="https://OI-Master.github.io/post/yong-c-yu-yan-shi-xian-shu-du/">
-        </link>
-        <updated>2020-02-29T07:59:53.000Z</updated>
-        <summary type="html"><![CDATA[<p>如何用 C 语言实现数独呢？本文将会详细为你讲解。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>如何用 C 语言实现数独呢？本文将会详细为你讲解。</p>
-<!-- more -->
-<h2 id="规则">规则</h2>
-<h3 id="方格">方格</h3>
-<p>水平方向有九横行，垂直方向有九纵列的矩形，画分八十一个小正方形，称为九宫格（Grid），如图一所示，是数独（Sudoku）的作用范围。<br>
-<img src="https://OI-Master.github.io/post-images/1582963539786.png" alt="图一" loading="lazy"></p>
-<h3 id="行">行</h3>
-<p>水平方向的每一横行有九格，每一横行称为行（Row），如图二所示。<br>
-<img src="https://OI-Master.github.io/post-images/1582963561979.png" alt="图二" loading="lazy"></p>
-<h3 id="列">列</h3>
-<p>垂直方向的每一纵列有九格，每一纵列称为列（Column），如图三所示。<br>
-<img src="https://OI-Master.github.io/post-images/1582963576536.png" alt="图三" loading="lazy"></p>
-<h3 id="宫">宫</h3>
-<p>三行与三列相交之处有九格，每一单元称为小九宫（Box、Block），简称宫，如图四所示）。<br>
-<img src="https://OI-Master.github.io/post-images/1582963602045.png" alt="图四" loading="lazy"></p>
-<h3 id="组成">组成</h3>
-<p>上述行、列、宫、单元格统称为单元（Unit）；而行、列、宫统称为区域（Region）。</p>
-<h3 id="区块">区块</h3>
-<p>由三个连续宫组成大行列（Chute），分大行（Floor）及大列（Tower）。<br>
-第一大行：由第一宫、第二宫、第三宫组成。<br>
-第二大行：由第四宫、第五宫、第六宫组成。<br>
-第三大行：由第七宫、第八宫、第九宫组成。<br>
-第一大列：由第一宫、第四宫、第七宫组成。<br>
-第二大列：由第二宫、第五宫、第八宫组成。<br>
-第三大列：由第三宫、第六宫、第九宫组成。</p>
-<h3 id="格位编号">格位编号</h3>
-<p>格位按所处的行列单元赋予坐标值，如图五所示。<br>
-<img src="https://OI-Master.github.io/post-images/1582963634065.png" alt="图五" loading="lazy"><br>
-坐标有多种标示法，有横行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>−</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">A-I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> ，纵列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">1-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> （如中国），也有横行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">1-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> ，纵列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>−</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">A-I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> （如日本），这两种标示容易混淆，故最被广泛使用的是横行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mn>1</mn><mo>−</mo><mi>R</mi><mn>9</mn></mrow><annotation encoding="application/x-tex">R1-R9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">9</span></span></span></span> ，纵列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mn>1</mn><mo>−</mo><mi>C</mi><mn>9</mn></mrow><annotation encoding="application/x-tex">C1-C9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord">9</span></span></span></span> 的标示法。<br>
-提示数<br>
-在九宫格的格位填上一些数字，做为填数判断的线索（Hint），称为提示数（Clue），如图六所示。<br>
-<img src="https://OI-Master.github.io/post-images/1582963649005.png" alt="图六" loading="lazy"></p>
-<h3 id="要求">要求</h3>
-<p>我们需要干的就是使每行、每列与每宫的数字均为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">1-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> ，且不重复。</p>
-<h2 id="如何解题">如何解题</h2>
-<p>人类解数独的方法并不适合计算机，因为人类的逻辑不好让计算机模拟，就像我们现在还无法制作真正意义上的“人工智能”。但是计算机的运算速度极快，且毫无情感也不偷懒，所以现在这道难题就可以当作一道简单的枚举题。<br>
-枚举是很容易的，你只需要想办法记住所有的空坐标，然后挨个枚举，当完全填完后，就可以输出数独了。我们可以用 深度优先搜索（dfs） 来完成这个工作，但是唯一的困难就是检验。<br>
-我们可以先看列，把列全扫一遍，然后再扫行，确定在列与行中没有重复后，再看宫，宫的起始坐标不难求，实在不行可以打表 <s>有点夸张</s> ，在源代码中会介绍。</p>
-<h2 id="源代码">源代码</h2>
-<pre><code class="language-c">#include&lt;stdio.h&gt;
-#include&lt;stdbool.h&gt;
-int s[10][10];
-int x[82];
-int y[82];
-int n;
-int cnt;
-inline bool check(int x,int y){
-	int i;
-	int j;
-	const int xhead=(x-1)/3*3+1;
-	const int yhead=(y-1)/3*3+1;
-	for(i=1;i&lt;10;++i){
-		if(i!=x&amp;&amp;s[i][y]==s[x][y])
-			return false;
-		if(i!=y&amp;&amp;s[x][i]==s[x][y])
-			return false;
-	}
-	for(i=xhead;i&lt;xhead+3;++i)
-		for(j=yhead;j&lt;yhead+3;++j)
-			if((i!=x||j!=y)&amp;&amp;s[i][j]==s[x][y])
-				return false;
-	return true;
-}
-void dfs(int k){
-	int i;
-	int j;
-	if(k==n+1){
-		++cnt;
-		putchar('\n');
-		for(i=1;i&lt;10;++i){
-			for(j=1;j&lt;10;++j)
-				putchar(s[i][j]+'0');
-			putchar('\n');
-		}
-		return;
-	}
-	i=x[k];
-	j=y[k];
-	for(s[i][j]=1;s[i][j]&lt;10;++s[i][j])
-		if(check(i,j))
-			dfs(k+1);
-	s[i][j]=0;
-}
-int main(){
-	int i;
-	int j;
-	for(i=1;i&lt;10;++i){
-		for(j=1;j&lt;10;++j){
-			s[i][j]=getchar()-'0';
-			if(!s[i][j]){
-				++n;
-				x[n]=i;
-				y[n]=j;
-			}
-		}
-		getchar();
-	}
-	dfs(1);
-	if(!cnt)
-		puts(&quot;Error&quot;);
-	if(cnt&gt;1)
-		printf(&quot;Total: %d\n&quot;,cnt);
-	return 0;
-}
-</code></pre>
-<p><strong>如果需要引入源代码，请注明出处！</strong></p>
 ]]></content>
     </entry>
 </feed>
