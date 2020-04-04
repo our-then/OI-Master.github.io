@@ -7,7 +7,7 @@
 <title>
     周四精英班实战练习（一）赛后总结 | TianyuZhou
 </title>
-<link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1585971044353">
+<link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1585971174070">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -35,7 +35,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://OI-Master.github.io">
-                <img class="avatar" src="https://OI-Master.github.io/images/avatar.png?v=1585971044353" alt="">
+                <img class="avatar" src="https://OI-Master.github.io/images/avatar.png?v=1585971174070" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -122,30 +122,93 @@
 <p>暴力算法很显然，我们枚举所有的前腿，然后在后面枚举所有的后腿，找到一个就说明配成一对，但是时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> ，会超时，过不了。<br>
 其实这一道题真的不难，我们发现，找到一双后脚，就可以与前面所有的前脚来搭配。所以就是一个典型的模拟题， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 时间复杂度。这种算法显然能过。</p>
 <h3 id="代码">代码</h3>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;fstream&gt;
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;queue&gt;
 using namespace std;
-string s;
-int main()
-{
-    ifstream in (&quot;a.in&quot;);
-    ofstream out (&quot;a.out&quot;);
-    
-    in &gt;&gt; s;
-    int ans = 0;
-    int backCount = 0;
-    
-    for (int i = 1; i &lt; s.size(); i++)
-    {
-        if(s[i-1] == ')' &amp;&amp; s[i] == ')')
-            ans += backCount;
-        else if(s[i-1] == '(' &amp;&amp; s[i] == '(')
-            backCount++;
+
+#define NMAX 500
+#define MMAX 500
+#define infinite 1000000000000000000LL
+
+struct edge {
+    int dest;
+    long long latency, cap;
+    edge(int dest, long long latency, long long cap) :
+        dest(dest), latency(latency), cap(cap) { }
+};
+vector&lt;edge&gt; edges[NMAX];
+long long caps[MMAX];
+
+struct entry {
+    int v;
+    long long dist;
+    entry(int v, long long dist) : v(v), dist(dist) { }
+    bool operator&lt;(entry const&amp; o) const {
+        return dist &gt; o.dist;
     }
-    
-    out &lt;&lt; ans &lt;&lt; &quot;\n&quot;;
-    out.close();
-    return 0;
+};
+
+bool visited[NMAX];
+long long minL(int n, int source, int dest, int minCap) {
+    for (int i = 0; i &lt; n; i++) {
+        visited[i] = false;
+    }
+    priority_queue&lt;entry&gt; q;
+    q.push(entry(source, 0));
+    while(q.size() &gt; 0) {
+        entry cur = q.top();
+        q.pop();
+        if (visited[cur.v]) {
+            continue;
+        }
+        if (cur.v == dest) {
+            return cur.dist;
+        }
+        visited[cur.v] = true;
+        for (int i = 0; i &lt; edges[cur.v].size(); i++) {
+            edge e = edges[cur.v][i];
+            if (e.cap &gt;= minCap) {
+                q.push(entry(e.dest, cur.dist + e.latency));
+            }
+        }
+    }
+    return infinite;
+}
+
+int main() {
+    freopen(&quot;d.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;d.out&quot;,&quot;w&quot;,stdout);
+
+    int n, m;
+    long long X;
+    scanf(&quot;%d&quot;, &amp;n);
+    scanf(&quot;%d&quot;, &amp;m);
+    scanf(&quot;%lld&quot;, &amp;X);
+    for (int i = 0; i &lt; m; i++) {
+        int a, b;
+        long long l, c;
+        scanf(&quot;%d&quot;, &amp;a);
+        scanf(&quot;%d&quot;, &amp;b);
+        scanf(&quot;%lld&quot;, &amp;l);
+        scanf(&quot;%lld&quot;, &amp;c);
+        a--;
+        b--;
+        edges[a].push_back(edge(b, l, c));
+        edges[b].push_back(edge(a, l, c));
+        caps[i] = c;
+    }
+
+    long long mintime = infinite;
+    for (int i = 0; i &lt; m; i++) {
+        long long c = caps[i];
+        long long l = minL(n, 0, n-1, c);
+        if (l != infinite) {
+            mintime = min(mintime, l + X/c);
+        }
+    }
+    printf(&quot;%lld\n&quot;, mintime);
 }
 </code></pre>
 <p><s>我的码风实在是诡异，所以就挂上标程了</s></p>
