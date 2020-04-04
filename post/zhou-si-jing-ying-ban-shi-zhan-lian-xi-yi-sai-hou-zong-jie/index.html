@@ -1,0 +1,750 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    周四精英班实战练习（一）赛后总结 | TianyuZhou
+</title>
+<link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1585971044353">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://OI-Master.github.io/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://OI-Master.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                
+
+                    
+                            
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://OI-Master.github.io">
+                <img class="avatar" src="https://OI-Master.github.io/images/avatar.png?v=1585971044353" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    TianyuZhou
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io" class="menu">
+                                    主页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/post/luo-gu-shi-lian-chang" class="menu">
+                                    洛谷试炼场
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            周四精英班实战练习（一）赛后总结
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2020-04-01</time>
+                            
+                        </div>
+                        
+                                <div class="post-content">
+                                    <p>首先，大家放心，这篇文章并不会显示在我的博客首页上，只能通过这个链接访问，能做到保密。再说，我特地把名字起了好多个字，应该也没有人会蒙对这个链接吧……<br>
+好了，不说外话了，我们先看一下题目吧。</p>
+<!-- more -->
+<h2 id="a-题">A 题</h2>
+<h3 id="思路">思路</h3>
+<p>暴力算法很显然，我们枚举所有的前腿，然后在后面枚举所有的后腿，找到一个就说明配成一对，但是时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> ，会超时，过不了。<br>
+其实这一道题真的不难，我们发现，找到一双后脚，就可以与前面所有的前脚来搭配。所以就是一个典型的模拟题， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 时间复杂度。这种算法显然能过。</p>
+<h3 id="代码">代码</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+string s;
+int main()
+{
+    ifstream in (&quot;a.in&quot;);
+    ofstream out (&quot;a.out&quot;);
+    
+    in &gt;&gt; s;
+    int ans = 0;
+    int backCount = 0;
+    
+    for (int i = 1; i &lt; s.size(); i++)
+    {
+        if(s[i-1] == ')' &amp;&amp; s[i] == ')')
+            ans += backCount;
+        else if(s[i-1] == '(' &amp;&amp; s[i] == '(')
+            backCount++;
+    }
+    
+    out &lt;&lt; ans &lt;&lt; &quot;\n&quot;;
+    out.close();
+    return 0;
+}
+</code></pre>
+<p><s>我的码风实在是诡异，所以就挂上标程了</s></p>
+<h2 id="b-题">B 题</h2>
+<p>第一题满分了，现在充满信心的看 B 题。但是我一看 B 题就马上傻了，心里只有暴力。</p>
+<h3 id="思路-2">思路</h3>
+<p>然后我在纸上推了好久，最后没搞出来。所有的思路都感觉有反例。<br>
+所以，最后写了一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 算法交了上去，然后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>60</mn></mrow><annotation encoding="application/x-tex">60</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">0</span></span></span></span> 分，唉，无奈啊。<br>
+这时候，我们的题解——闪亮登场！<br>
+首先，我们定义几个变量。</p>
+<ul>
+<li><code>depth</code> - 左括号的数量减去右括号的数量</li>
+<li><code>open</code> - 目前觉得能改的左括号的数量</li>
+<li><code>close</code> - 右括号的数量</li>
+</ul>
+<p>我们先线性扫一遍这个括号串，然后做出以下的策略</p>
+<ul>
+<li>如果这个字符为 <code>(</code> 的话，我们让 <code>depth</code> 加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，同时，把 <code>open</code> 也加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。</li>
+<li>如果这个字符为 <code>)</code> 的话，我们让 <code>depth</code> 减 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，同时，把 <code>close</code> 也加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。</li>
+<li>如果 <code>depth</code> 不到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的话，那么 <code>depth</code> 只可能为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span> 或者是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ，所以前面的 <code>open</code> 要清理（没法改，所以清掉）。你可能会问，那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">2</span></span></span></span> 这些数字呢？你会发现，这些数字不可能达到的，你先记着，待会你就知道为什么了。</li>
+<li>如果 <code>depth</code> 减到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span> ，我们发现只要改一个右括号就行了，所以输出 <code>close</code> ，然后愉快地 <code>return 0</code> 。</li>
+</ul>
+<p>循环结束了，如果 <code>depth</code> 大于一，那么输出左括号的数量，否则输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<h3 id="代码-2">代码</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+string s;
+int main()
+{
+    ifstream in (&quot;b.in&quot;);
+    ofstream out (&quot;b.out&quot;);
+    
+    in &gt;&gt; s;
+    int ans = 0;
+    int depth = 0;
+    int closingSeen = 0; //since start of string
+    int openingSeen = 0; //since last time with depth = 1
+    
+    for (int i = 0; i &lt; s.size(); i++)
+    {
+        if(s[i] == '(')
+        {
+            depth++;
+            openingSeen++;
+        }
+        else
+        {
+            depth--;
+            closingSeen++;
+        }
+        
+        if(depth &lt;= 1)
+            openingSeen = 0;
+        if(depth == -1)
+        {
+            ans = closingSeen;
+            break;
+        }
+    }
+    
+    if(depth &gt; 0)
+        ans = openingSeen;
+    
+    out &lt;&lt; ans &lt;&lt; &quot;\n&quot;;
+    out.close();
+    return 0;
+}
+</code></pre>
+<h2 id="c-题">C 题</h2>
+<p>我喜欢写深度优先搜索，于是我快快活活地写代码……<br>
+然后写完了，于是快快活活地测试……<br>
+然后测试错了，于是快快活活地修改……<br>
+然后修改完了，于是快快活活地测试……<br>
+然后测试对了，于是快快活活的保存，提交……<br>
+最后，在老师的机子上编译错误了。<br>
+我命苦啊！！！</p>
+<p>这一次，我没什么感觉，我就是告诉大家，本地测试是对的，可是交上去千万不要用以下几个变量名：</p>
+<ul>
+<li><code>y1</code></li>
+<li><code>y2</code></li>
+<li><code>x1</code></li>
+<li><code>x2</code></li>
+<li><code>max</code></li>
+<li><code>time</code></li>
+<li><code>move</code></li>
+</ul>
+<p>如果你做到了，还把搜索写得很熟练，你就满分了。<br>
+为了献上我 CE 的代码。前面一段板子较多，于是我删了一下，但还是 CE。</p>
+<pre><code class="language-cpp">#include&lt;fstream&gt;
+using namespace std;
+ifstream cin(&quot;c.in&quot;);
+ofstream cout(&quot;c.out&quot;);
+#define int long long
+int n;
+char a[7][7];
+int maxv=0;
+int move[2][4]={{0,-1,0,1},{-1,0,1,0}};
+void dfs(int x,int y,int l,int r,bool le){
+	if(l==r){
+		maxv=max(l+r,maxv);
+		return;
+	}
+	char tmp=a[x][y];
+	a[x][y]=0;
+	for(int i=0;i&lt;4;++i){
+		int xx=move[0][i]+x;
+		int yy=move[1][i]+y;
+		if(a[xx][yy]==0)
+			continue;
+		if(a[xx][yy]=='(')
+			if(le==0)
+				dfs(xx,yy,l+1,0,le);
+			else
+				continue;
+		else
+			if(le==0)
+				dfs(xx,yy,l,1,1);
+			else
+				dfs(xx,yy,l,r+1,le);
+	}
+	a[x][y]=tmp;
+}
+signed main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;++i)
+		for(int j=1;j&lt;=n;++j)
+			cin&gt;&gt;a[i][j];
+	if(a[1][1]==')'){
+		cout&lt;&lt;0&lt;&lt;endl;
+		return 0;
+	}
+	dfs(1,1,1,0,0);
+	cout&lt;&lt;maxv&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<p>然后献上改了一个变量名就 AC 的代码。</p>
+<pre><code class="language-cpp">#include&lt;fstream&gt;
+using namespace std;
+ifstream cin(&quot;c.in&quot;);
+ofstream cout(&quot;c.out&quot;);
+#define int long long
+int n;
+char a[7][7];
+int maxv=0;
+int mo[2][4]={{0,-1,0,1},{-1,0,1,0}};    //就是这里，改了一点点
+void dfs(int x,int y,int l,int r,bool le){
+	if(l==r){
+		maxv=max(l+r,maxv);
+		return;
+	}
+	char tmp=a[x][y];
+	a[x][y]=0;
+	for(int i=0;i&lt;4;++i){
+		int xx=mo[0][i]+x;
+		int yy=mo[1][i]+y;
+		if(a[xx][yy]==0)
+			continue;
+		if(a[xx][yy]=='(')
+			if(le==0)
+				dfs(xx,yy,l+1,0,le);
+			else
+				continue;
+		else
+			if(le==0)
+				dfs(xx,yy,l,1,1);
+			else
+				dfs(xx,yy,l,r+1,le);
+	}
+	a[x][y]=tmp;
+}
+signed main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;++i)
+		for(int j=1;j&lt;=n;++j)
+			cin&gt;&gt;a[i][j];
+	if(a[1][1]==')'){
+		cout&lt;&lt;0&lt;&lt;endl;
+		return 0;
+	}
+	dfs(1,1,1,0,0);
+	cout&lt;&lt;maxv&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<p>好，让我解释一下我的代码吧。</p>
+<h3 id="思路-3">思路</h3>
+<pre><code class="language-cpp">#include&lt;fstream&gt;
+using namespace std;
+ifstream cin(&quot;c.in&quot;);
+ofstream cout(&quot;c.out&quot;);
+#define int long long
+</code></pre>
+<p>这些是文件输入加上板子（部分），真正的板子有十来行，不展示了。</p>
+<pre><code class="language-cpp">int n;
+char a[7][7];
+int maxv=0;
+int mo[2][4]={{0,-1,0,1},{-1,0,1,0}};
+</code></pre>
+<p>这些是定义变量。除了 <code>mo</code> 数组，其余的几乎不值一提。但是 <code>mo</code> 数组只是一个坐标控制，也很简单。</p>
+<pre><code class="language-cpp">void dfs(int x,int y,int l,int r,bool le){
+	if(l==r){
+		maxv=max(l+r,maxv);
+		return;
+	}
+	char tmp=a[x][y];
+	a[x][y]=0;
+	for(int i=0;i&lt;4;++i){
+		int xx=mo[0][i]+x;
+		int yy=mo[1][i]+y;
+		if(a[xx][yy]==0)
+			continue;
+		if(a[xx][yy]=='(')
+			if(le==0)
+				dfs(xx,yy,l+1,0,le);
+			else
+				continue;
+		else
+			if(le==0)
+				dfs(xx,yy,l,1,1);
+			else
+				dfs(xx,yy,l,r+1,le);
+	}
+	a[x][y]=tmp;
+}
+</code></pre>
+<p><code>dfs</code> 得好好地说一说。首先，第一个 <code>if</code> 语句表示的是“已经把这个串走完了，比较大小”。<br>
+然后接下来，把这个字符设定为“墙”，下次就回不来了。<br>
+接下来，我们枚举方向，当发现可以走的时候递归继续。可不可以走可以看一下我的 <code>if</code> 语句，至少本人认为写得很清楚。<br>
+最后，恢复现场，<code>return</code>。</p>
+<pre><code class="language-cpp">signed main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;++i)
+		for(int j=1;j&lt;=n;++j)
+			cin&gt;&gt;a[i][j];
+	if(a[1][1]==')'){
+		cout&lt;&lt;0&lt;&lt;endl;
+		return 0;
+	}
+	dfs(1,1,1,0,0);
+	cout&lt;&lt;maxv&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<p>由于开头用了 <code>#define int long long</code> ，所以现在只能用 <code>signed main</code> 了。<br>
+首先，是输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> ，然后输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 数组。<br>
+如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 的左上角是 <code>)</code> 的话，那么什么也走不了，直接打印 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 。<br>
+否则，搜索一下，打印最大值。<br>
+下面的代码是官方的，因为我的代码挂过了。</p>
+<h3 id="代码-3">代码</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+using namespace std;
+#define pii pair&lt;int,int&gt;
+int N;
+bool unvis[7][7];
+int graph[7][7]; //-1 is border, 0 is open, 1 is close
+int dx[4] = {1,-1,0,0};
+int dy[4] = {0,0,1,-1};
+int ans = 0;
+void calc(int r, int c, int numopen, int numclose, bool second)
+{
+    if(numopen == numclose)
+    {
+        ans = max(ans, numopen + numclose);
+        return;
+    }
+    
+    //there is no need to check solutions that we know cannot be better than the best answer that we have found so far
+    //this optimization is not required to solve the given test cases within 1 second
+    if(second &amp;&amp; (2*numopen &lt;= ans))
+        return;
+    
+    unvis[r][c] = false;
+    
+    for (int i = 0; i &lt; 4; i++)
+    {
+        int r2 = r + dx[i];
+        int c2 = c + dy[i];
+        
+        if(unvis[r2][c2])
+        {
+            if(graph[r2][c2] == 1)
+                calc(r2, c2, numopen, numclose + 1, true);
+            else if(!second)
+                calc(r2, c2, numopen + 1, numclose, false);
+        }
+    }
+    
+    unvis[r][c] = true;
+}
+int main()
+{
+    ifstream in (&quot;c.in&quot;);
+    ofstream out (&quot;c.out&quot;);
+    
+    in &gt;&gt; N;
+    for (int i = 0; i &lt;= N+1; i++) //adding a border around the grid makes it easier to check if a location is within the grid
+    {
+        unvis[0][i] = unvis[N+1][i] = unvis[i][0] = unvis[i][N+1] = false;
+        graph[0][i] = graph[N+1][i] = graph[i][0] = graph[i][N+1] = -1;
+    }
+                                            
+    for (int i = 1; i &lt;= N; i++)
+    {
+        string s;
+        in &gt;&gt; s;
+        for (int j = 1; j &lt;= N; j++)
+        {
+            unvis[i][j] = true;
+            if(s[j-1] == '(')
+                graph[i][j] = 0;
+            else
+                graph[i][j] = 1;
+        }
+    }
+    
+    if(graph[1][1] == 0)
+        calc(1,1,1,0,false);
+    out &lt;&lt; ans &lt;&lt; &quot;\n&quot;;
+    out.close();
+    return 0;
+}
+</code></pre>
+<h2 id="d-题">D 题</h2>
+<p>这道题看得很晕，所以就先做一道感觉良好的 E题 了，最后写了个样例骗到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 分。</p>
+<h3 id="思路-4">思路</h3>
+<p>图论题，我现在表达还不是很清楚，所以暂时待填坑。</p>
+<h3 id="代码-4">代码</h3>
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+#define NMAX 500
+#define MMAX 500
+#define infinite 1000000000000000000LL
+
+struct edge {
+    int dest;
+    long long latency, cap;
+    edge(int dest, long long latency, long long cap) :
+        dest(dest), latency(latency), cap(cap) { }
+};
+vector&lt;edge&gt; edges[NMAX];
+long long caps[MMAX];
+
+struct entry {
+    int v;
+    long long dist;
+    entry(int v, long long dist) : v(v), dist(dist) { }
+    bool operator&lt;(entry const&amp; o) const {
+        return dist &gt; o.dist;
+    }
+};
+
+bool visited[NMAX];
+long long minL(int n, int source, int dest, int minCap) {
+    for (int i = 0; i &lt; n; i++) {
+        visited[i] = false;
+    }
+    priority_queue&lt;entry&gt; q;
+    q.push(entry(source, 0));
+    while(q.size() &gt; 0) {
+        entry cur = q.top();
+        q.pop();
+        if (visited[cur.v]) {
+            continue;
+        }
+        if (cur.v == dest) {
+            return cur.dist;
+        }
+        visited[cur.v] = true;
+        for (int i = 0; i &lt; edges[cur.v].size(); i++) {
+            edge e = edges[cur.v][i];
+            if (e.cap &gt;= minCap) {
+                q.push(entry(e.dest, cur.dist + e.latency));
+            }
+        }
+    }
+    return infinite;
+}
+
+int main() {
+    freopen(&quot;mroute.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;mroute.out&quot;,&quot;w&quot;,stdout);
+
+    int n, m;
+    long long X;
+    scanf(&quot;%d&quot;, &amp;n);
+    scanf(&quot;%d&quot;, &amp;m);
+    scanf(&quot;%lld&quot;, &amp;X);
+    for (int i = 0; i &lt; m; i++) {
+        int a, b;
+        long long l, c;
+        scanf(&quot;%d&quot;, &amp;a);
+        scanf(&quot;%d&quot;, &amp;b);
+        scanf(&quot;%lld&quot;, &amp;l);
+        scanf(&quot;%lld&quot;, &amp;c);
+        a--;
+        b--;
+        edges[a].push_back(edge(b, l, c));
+        edges[b].push_back(edge(a, l, c));
+        caps[i] = c;
+    }
+
+    long long mintime = infinite;
+    for (int i = 0; i &lt; m; i++) {
+        long long c = caps[i];
+        long long l = minL(n, 0, n-1, c);
+        if (l != infinite) {
+            mintime = min(mintime, l + X/c);
+        }
+    }
+    printf(&quot;%lld\n&quot;, mintime);
+}
+</code></pre>
+<h2 id="e-题">E 题</h2>
+<p>本题刚开始做感觉很好，样例与我手动输入的数据测了也是对的，可莫名其妙就40分……</p>
+<h3 id="思路-5">思路</h3>
+<p>这道题老师其实已经讲过了一遍，是一道动态规划（DP）题目。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">F_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 表示的意思就是“看到第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 个物品了，面积为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> 所需的代价。所以，状态转移方程如下：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mi>F</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mi>k</mi><mo>∗</mo><mi>k</mi></mrow><mo>+</mo><mi>a</mi><mi>b</mi><mi>s</mi><mo>(</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>−</mo><mi>k</mi><mo>)</mo><mo>∗</mo><mi>a</mi><mi>b</mi><mi>s</mi><mo>(</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>−</mo><mi>k</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">F_{i,j}=F{i-1,j-k*k}+abs(a[i]-k)*abs(a[i]-k)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord"><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></span></p>
+<p>最后，打印 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">F_{n,m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 即可。</p>
+<h3 id="代码-5">代码</h3>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+
+#define MAX_M 10000
+#define MAX_N 10
+#define INF 1000000000
+
+int best[MAX_M+1][MAX_N+1];
+int A[MAX_M+1];
+
+int main(void)
+{
+  int M, N, i, j, k;
+
+  freopen (&quot;e.in&quot;, &quot;r&quot;, stdin);
+  freopen (&quot;e.out&quot;, &quot;w&quot;, stdout);
+
+  scanf (&quot;%d %d&quot;, &amp;N, &amp;M);
+  for (i=1; i&lt;=N; i++)
+    scanf (&quot;%d&quot;, &amp;A[i]);
+
+  for (i=1; i&lt;=M; i++)
+    best[i][0] = INF;
+
+  for (j=1; j&lt;=N; j++)
+    for (i=0; i&lt;=M; i++) {
+      best[i][j] = INF;
+      for (k=1; k*k&lt;=i; k++)
+      if ((A[j]-k)*(A[j]-k) + best[i-k*k][j-1] &lt; best[i][j])
+        best[i][j] = (A[j]-k)*(A[j]-k) + best[i-k*k][j-1];
+    }
+  
+  if (best[M][N]==INF)
+    printf (&quot;-1\n&quot;);
+  else
+    printf (&quot;%d\n&quot;, best[M][N]);
+
+  return 0;
+}
+</code></pre>
+<p>本文到此结束，谢谢。</p>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#a-%E9%A2%98">A 题</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
+<li><a href="#b-%E9%A2%98">B 题</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%B7%AF-2">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-2">代码</a></li>
+</ul>
+</li>
+<li><a href="#c-%E9%A2%98">C 题</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%B7%AF-3">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-3">代码</a></li>
+</ul>
+</li>
+<li><a href="#d-%E9%A2%98">D 题</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%B7%AF-4">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-4">代码</a></li>
+</ul>
+</li>
+<li><a href="#e-%E9%A2%98">E 题</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%B7%AF-5">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81-5">代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
+    </div>
+    
+                            
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  访问量：<br>
+<a href="http://flagcounter.me/details/bs3"><img src="http://flagcounter.me/bs3/" alt="Flag Counter"></a><br>
+Copyright © 2020 TianyuZhou  | 
+  <a class="rss" href="https://OI-Master.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+        
+            <script>
+    window.onload = function() {
+        var gitalk = new Gitalk({
+            clientID: 'f56ca716e8d8f23c4cd7',
+            clientSecret: '0a02a6923e6406cc4f01c2f199f477bd8b78027f',
+            repo: 'gitalk',
+            owner: 'OI-Master',
+            admin: ['OI-Master'],
+            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    }
+</script>
+                
+
+                    
+                                
+</body>
+
+</html>
