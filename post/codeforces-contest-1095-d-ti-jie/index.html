@@ -1,0 +1,323 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    Codeforces Contest 1095 D 题解 | TianyuZhou
+</title>
+<link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1586077339520">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://OI-Master.github.io/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://OI-Master.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                
+
+                    
+                            
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://OI-Master.github.io">
+                <img class="avatar" src="https://OI-Master.github.io/images/avatar.png?v=1586077339520" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    TianyuZhou
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io" class="menu">
+                                    主页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="https://OI-Master.github.io/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            Codeforces Contest 1095 D 题解
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2020-04-05</time>
+                            
+                                <a href="https://OI-Master.github.io/tag/XDNpW9w8i/" class="post-tag i-tag
+                            i-tag-banana">
+                            #题解
+                        </a>
+                                
+                                <a href="https://OI-Master.github.io/tag/QTCptIBFw/" class="post-tag i-tag
+                            i-tag-other_1">
+                            #编程
+                        </a>
+                                
+                                <a href="https://OI-Master.github.io/tag/E6yXG6rkR/" class="post-tag i-tag
+                            i-tag-banana">
+                            #Codeforces
+                        </a>
+                                
+                        </div>
+                        
+                                <div class="post-content">
+                                    <p>为了纪念马上开学，我又来写题解了。早上六点仍然打了一场虚拟比赛，不过没人陪我啊（如果您可以请告诉我，我的 QQ 号是 202367038，谢谢。<br>
+然后呢，我就不扯别的了，先开始正题，不过在说思路之前，我们得讲讲题面。</p>
+<!-- more -->
+<h2 id="题面">题面</h2>
+<h3 id="英文题面">英文题面</h3>
+<p>这道题的英文题面可以在 <a href="https://codeforces.com/contest/1095/problem/D">Codeforces</a> 上找到，这里不多说，实在是没有必要把英文题面拷贝过来。其实也没有访问的必要，主要是告诉你可以在哪里提交。</p>
+<h3 id="中文题面">中文题面</h3>
+<p>一群小孩在一起玩游戏，他们围城一个圈圈，就像是这样。<br>
+<img src="https://OI-Master.github.io/post-images/1586074922523.png" alt="小孩" loading="lazy"><br>
+小孩是每个小节点，边（箭头）就是表示小孩面向的方向。<br>
+然后接下来，小孩子们被打乱，找不到原来的顺序了。但是唯一一个好处就是，他知道他前面的人和前面的前面的人。注意，给的时候可能没按照顺序给，例如先告诉你“前面的前面”的小孩子的编号，再告诉你“前面”得人的编号，需要你自己判断。<br>
+我们告诉你这些小孩子们的回忆，让你还原小孩子们原来的位置，例如，这张图的答案就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>3</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>5</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[3,2,4,1,5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">5</span><span class="mclose">]</span></span></span></span> ，也可以说是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>4</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,5,3,2,4]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mclose">]</span></span></span></span>，还有别的答案，你输出任意一种即可。<br>
+如果你没看懂，请在评论留言，我会根据你的问题进一步修改文章的翻译。</p>
+<h2 id="思路">思路</h2>
+<p>这道题我们会发现这些条件给的并不好，我们没法确定相邻的信息，因为我们给的时候不知道两个数字的顺序，自然也无法判断到底是哪一个数字跟我相邻。不过，我们可以转个弯，如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> 一个是我的前面，一个是我前面的前面，那么很显然，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> 相邻。我们构造一个这样子的图就行了。<br>
+我写呀写、写呀写、写呀写、写呀写，唉，最后还是答案错误，您一定知道这是什么意思吧？我最后发现了一个 Bug ，就是我们可能把整个图搞反了，箭头的方向走错了，怎么办呢？<br>
+很简单，我们只需要在第一个数字读入的时候，记录下两个数字的位置，在第一次走的时候不要走反方向，要向这两个数字走。<br>
+于是，代码写出来了。<br>
+于是，我 AC 了此题。<br>
+于是，我就放代码了。<br>
+（皮一下很开心</p>
+<h2 id="代码">代码</h2>
+<pre><code class="language-cpp/*"> * You can download the binary file in here https://github.com/xalanq/cf-tool
+ * Author: OI_Master
+ * Time: 2020-04-05 07:16:11
+**/
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+int head[200300];
+int cnt;
+struct edge{
+	int next;
+	int to;
+}e[400300];
+void add_edge(int u,int v){
+	++cnt;
+	e[cnt].next=head[u];
+	head[u]=cnt;
+	e[cnt].to=v;
+}
+bool vis[200300];
+void dfs(int s){
+	cout&lt;&lt;s&lt;&lt;' ';
+	vis[s]=true;
+	for(int i=head[s];i;i=e[i].next)
+		if(vis[e[i].to]==false){
+			dfs(e[i].to);
+			break;
+		}
+}
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n;
+	cin&gt;&gt;n;
+	int a,b;
+	for(int i=1;i&lt;=n;++i){
+		int x;
+		int y;
+		cin&gt;&gt;x&gt;&gt;y;
+		add_edge(x,y);
+		add_edge(y,x);
+		if(i==1){
+			a=x;
+			b=y;
+		}
+	}
+	cout&lt;&lt;&quot;1 &quot;;
+	vis[1]=true;
+	for(int i=head[1];i;i=e[i].next)
+		if(e[i].to==a||e[i].to==b){
+			dfs(e[i].to);
+			break;
+		}
+	return 0;
+}
+</code></pre>
+<p>好，本位到此结束。</p>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://OI-Master.github.io/post/iframe-zhi-nan/">
+                                <h3 class="post-title">
+                                    iframe 指南
+                                </h3>
+                            </a>
+                        </div>
+                        
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E9%9D%A2">题面</a>
+<ul>
+<li><a href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2">英文题面</a></li>
+<li><a href="#%E4%B8%AD%E6%96%87%E9%A2%98%E9%9D%A2">中文题面</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
+    </div>
+    
+                            
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  访问量：<br>
+<a href="http://flagcounter.me/details/bs3"><img src="http://flagcounter.me/bs3/" alt="Flag Counter"></a><br>
+Copyright © 2020 TianyuZhou  | 
+  <a class="rss" href="https://OI-Master.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+        
+            <script>
+    window.onload = function() {
+        var gitalk = new Gitalk({
+            clientID: 'f56ca716e8d8f23c4cd7',
+            clientSecret: '0a02a6923e6406cc4f01c2f199f477bd8b78027f',
+            repo: 'gitalk',
+            owner: 'OI-Master',
+            admin: ['OI-Master'],
+            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    }
+</script>
+                
+
+                    
+                                
+</body>
+
+</html>
