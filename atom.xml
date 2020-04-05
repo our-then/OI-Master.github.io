@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-05T09:07:33.216Z</updated>
+    <updated>2020-04-05T09:10:08.616Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -26,7 +26,7 @@
 <h3 id="英文题面">英文题面</h3>
 <p>这道题的英文题面可以在 <a href="https://codeforces.com/contest/1095/problem/D">Codeforces</a> 上找到，这里不多说，实在是没有必要把英文题面拷贝过来。其实也没有访问的必要，主要是告诉你可以在哪里提交。</p>
 <h3 id="中文题面">中文题面</h3>
-<p>一群小孩在一起玩游戏，他们围城一个圈圈，就像是这样。<br>
+<p>一群小孩在一起玩游戏，他们围成一个圈圈，就像是这样。<br>
 <img src="https://OI-Master.github.io/post-images/1586074922523.png" alt="小孩" loading="lazy"><br>
 小孩是每个小节点，边（箭头）就是表示小孩面向的方向。<br>
 然后接下来，小孩子们被打乱，找不到原来的顺序了。但是唯一一个好处就是，他知道他前面的人和前面的前面的人。注意，给的时候可能没按照顺序给，例如先告诉你“前面的前面”的小孩子的编号，再告诉你“前面”得人的编号，需要你自己判断。<br>
