@@ -5,7 +5,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>
-    Codeforces Contest 1095 D 题解 | TianyuZhou
+    Codeforces Contest 32 D 题解 | TianyuZhou
 </title>
 <link rel="shortcut icon" href="https://OI-Master.github.io/favicon.ico?v=1586138663937">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
@@ -98,109 +98,75 @@
                 <div id="content" class="main-container-left">
                     <article class="post i-card">
                         <h2 class="post-title">
-                            Codeforces Contest 1095 D 题解
+                            Codeforces Contest 32 D 题解
                         </h2>
                         <div class="post-info">
-                            <time class="post-time">2020-04-05</time>
+                            <time class="post-time">2020-04-06</time>
                             
                                 <a href="https://OI-Master.github.io/tag/XDNpW9w8i/" class="post-tag i-tag
-                            i-tag-other_1">
+                            i-tag-warning">
                             #题解
                         </a>
                                 
                                 <a href="https://OI-Master.github.io/tag/QTCptIBFw/" class="post-tag i-tag
-                            i-tag-info">
+                            i-tag-other_4">
                             #编程
                         </a>
                                 
                                 <a href="https://OI-Master.github.io/tag/E6yXG6rkR/" class="post-tag i-tag
-                            i-tag-">
+                            i-tag-other_1">
                             #Codeforces
                         </a>
                                 
                         </div>
                         
                                 <div class="post-content">
-                                    <p>为了纪念马上开学，我又来写题解了。早上六点仍然打了一场虚拟比赛，不过没人陪我啊（如果您可以请告诉我，我的 QQ 号是 202367038，谢谢。<br>
-然后呢，我就不扯别的了，先开始正题，不过在说思路之前，我们得讲讲题面。</p>
+                                    <p>早上六点打的虚拟比赛，差点 AK ，就差一个 E 题。最后发现 E 题不论是 洛谷 还是 Codeforces 都没有题解，而看 CF 正确的源代码又看不懂，我太难了……<br>
+题面请在洛谷里看，我这里不做介绍。<br>
+我们先讲思路吧。</p>
 <!-- more -->
-<h2 id="题面">题面</h2>
-<h3 id="英文题面">英文题面</h3>
-<p>这道题的英文题面可以在 <a href="https://codeforces.com/contest/1095/problem/D">Codeforces</a> 上找到，这里不多说，实在是没有必要把英文题面拷贝过来。其实也没有访问的必要，主要是告诉你可以在哪里提交。</p>
-<h3 id="中文题面">中文题面</h3>
-<p>一群小孩在一起玩游戏，他们围成一个圈圈，就像是这样。<br>
-<img src="https://OI-Master.github.io/post-images/1586074922523.png" alt="小孩" loading="lazy"><br>
-小孩是每个小节点，边（箭头）就是表示小孩面向的方向。<br>
-然后接下来，小孩子们被打乱，找不到原来的顺序了。但是唯一一个好处就是，他知道他前面的人和前面的前面的人。注意，给的时候可能没按照顺序给，例如先告诉你“前面的前面”的小孩子的编号，再告诉你“前面”得人的编号，需要你自己判断。<br>
-我们告诉你这些小孩子们的回忆，让你还原小孩子们原来的位置，例如，这张图的答案就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>3</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>5</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[3,2,4,1,5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">5</span><span class="mclose">]</span></span></span></span> ，也可以说是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>4</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,5,3,2,4]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mclose">]</span></span></span></span>，还有别的答案，你输出任意一种即可。<br>
-如果你没看懂，请在评论留言，我会根据你的问题进一步修改文章的翻译。</p>
 <h2 id="思路">思路</h2>
-<p>这道题我们会发现这些条件给的并不好，我们没法确定相邻的信息，因为我们给的时候不知道两个数字的顺序，自然也无法判断到底是哪一个数字跟我相邻。不过，我们可以转个弯，如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> 一个是我的前面，一个是我前面的前面，那么很显然，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> 相邻。我们构造一个这样子的图就行了。<br>
-我写呀写、写呀写、写呀写、写呀写，唉，最后还是答案错误，您一定知道这是什么意思吧？我最后发现了一个 Bug ，就是我们可能把整个图搞反了，箭头的方向走错了，怎么办呢？<br>
-很简单，我们只需要在第一个数字读入的时候，记录下两个数字的位置，在第一次走的时候不要走反方向，要向这两个数字走。<br>
-于是，代码写出来了。<br>
-于是，我 AC 了此题。<br>
-于是，我就放代码了。<br>
-（皮一下很开心</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 才 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>300</mn></mrow><annotation encoding="application/x-tex">300</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mord">0</span></span></span></span> ？那就写个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 算法。啪啪啪啪啪啪啪啪……咦？居然过<br>
+了？！<br>
+这道题的数据很小呢，所以发现这道题纯考你的手熟不熟，思维不难。<br>
+我们先枚举半径（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> ，从小到大），然后枚举行（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> ，从小到大），再枚举列（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> ，还是从小到大），然后我们每次判断存不存在当中心点为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i, j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>，半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> 的十字形星座。如果有，那么就把总数加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。如果总数到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，那么我们就打印。<br>
+如果最后啥也没打出来（也就是说，总数小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>），那么就输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>。<br>
+如此简单，这上面就算是一种伪代码了（难道不是吗？</p>
 <h2 id="代码">代码</h2>
+<p>给上 C++ 实现的代码</p>
 <pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
- * You can download the binary file in here https://github.com/xalanq/cf-tool
  * Author: OI_Master
- * Time: 2020-04-05 07:16:11
+ * Time: 2020-03-31 07:20:10
 **/
 #include&lt;bits/stdc++.h&gt;
 using namespace std;
 #define int long long
-int head[200300];
-int cnt;
-struct edge{
-	int next;
-	int to;
-}e[400300];
-void add_edge(int u,int v){
-	++cnt;
-	e[cnt].next=head[u];
-	head[u]=cnt;
-	e[cnt].to=v;
-}
-bool vis[200300];
-void dfs(int s){
-	cout&lt;&lt;s&lt;&lt;' ';
-	vis[s]=true;
-	for(int i=head[s];i;i=e[i].next)
-		if(vis[e[i].to]==false){
-			dfs(e[i].to);
-			break;
-		}
-}
-signed main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n;
-	cin&gt;&gt;n;
-	int a,b;
-	for(int i=1;i&lt;=n;++i){
-		int x;
-		int y;
-		cin&gt;&gt;x&gt;&gt;y;
-		add_edge(x,y);
-		add_edge(y,x);
-		if(i==1){
-			a=x;
-			b=y;
-		}
-	}
-	cout&lt;&lt;&quot;1 &quot;;
-	vis[1]=true;
-	for(int i=head[1];i;i=e[i].next)
-		if(e[i].to==a||e[i].to==b){
-			dfs(e[i].to);
-			break;
-		}
-	return 0;
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int n,m,k;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;
+    char c[n+1][m+1];
+    for(int i=1;i&lt;=n;++i)
+    	for(int j=1;j&lt;=m;++j)
+    		cin&gt;&gt;c[i][j];
+    int num=0;
+    for(int r=1;r&lt;=min(n,m);++r)
+    	for(int i=r+1;i+r&lt;=n;++i)
+    		for(int j=r+1;j+r&lt;=m;++j)
+    			if(c[i][j]=='*'&amp;&amp;c[i-r][j]=='*'&amp;&amp;c[i+r][j]=='*'&amp;&amp;c[i][j-r]=='*'&amp;&amp;c[i][j+r]=='*'){
+    				if(num==k-1){
+    					cout&lt;&lt;i&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i-r&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i+r&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i&lt;&lt;' '&lt;&lt;j-r&lt;&lt;endl&lt;&lt;i&lt;&lt;' '&lt;&lt;j+r&lt;&lt;endl;
+    					return 0;
+    				}
+    				else
+    					++num;
+    			}
+    cout&lt;&lt;-1&lt;&lt;endl;
+    return 0;
 }
 </code></pre>
-<p>好，本文到此结束。</p>
+<p>本文到此结束。</p>
 
                                 </div>
                     </article>
@@ -208,9 +174,9 @@ signed main() {
                     
                         <div class="next-post">
                             <div class="next">下一篇</div>
-                            <a href="https://OI-Master.github.io/post/da-jian-zi-ji-de-online-judge/">
+                            <a href="https://OI-Master.github.io/post/codeforces-contest-1095-d-ti-jie/">
                                 <h3 class="post-title">
-                                    搭建自己的 Online Judge
+                                    Codeforces Contest 1095 D 题解
                                 </h3>
                             </a>
                         </div>
@@ -231,12 +197,6 @@ signed main() {
             <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E9%A2%98%E9%9D%A2">题面</a>
-<ul>
-<li><a href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2">英文题面</a></li>
-<li><a href="#%E4%B8%AD%E6%96%87%E9%A2%98%E9%9D%A2">中文题面</a></li>
-</ul>
-</li>
 <li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
 <li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
 </ul>
