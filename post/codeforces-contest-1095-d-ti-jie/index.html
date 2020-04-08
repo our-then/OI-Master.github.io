@@ -29,6 +29,9 @@
     <!--点击特效-->
     <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
     
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic@latest/assets/media/script/APlayer.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+        
             <!--CDN样式-->
             <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
             <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
@@ -85,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1586352884910" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1586386318726" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -104,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1586352884910" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1586386318726" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -330,12 +333,12 @@ signed main() {
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
                                                                     <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/codeforces-contest-1095-d-ti-jie/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-contest-1095-d-ti-jie/&sharesource=qzone&title=Codeforces Contest 1095 D 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1586352884910&summary=&lt;p&gt;为了纪念马上开学，我又来写题解了。早上六点仍然打了一场虚拟比赛，不过没人陪我啊（如果您可以请告诉我，我的 QQ 号是 202367038，谢谢。&lt;br&gt;
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-contest-1095-d-ti-jie/&sharesource=qzone&title=Codeforces Contest 1095 D 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1586386318726&summary=&lt;p&gt;为了纪念马上开学，我又来写题解了。早上六点仍然打了一场虚拟比赛，不过没人陪我啊（如果您可以请告诉我，我的 QQ 号是 202367038，谢谢。&lt;br&gt;
 然后呢，我就不扯别的了，先开始正题，不过在说思路之前，我们得讲讲题面。&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
                                                                     <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/codeforces-contest-1095-d-ti-jie/&sharesource=weibo&title=Codeforces Contest 1095 D 题解 + " - " + &lt;p&gt;为了纪念马上开学，我又来写题解了。早上六点仍然打了一场虚拟比赛，不过没人陪我啊（如果您可以请告诉我，我的 QQ 号是 202367038，谢谢。&lt;br&gt;
 然后呢，我就不扯别的了，先开始正题，不过在说思路之前，我们得讲讲题面。&lt;/p&gt;
-&pic="https://OI-Master.github.io/images/avatar.png?v=1586352884910 "><i class="fa fa-weibo "></i></a>
+&pic="https://OI-Master.github.io/images/avatar.png?v=1586386318726 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -413,6 +416,8 @@ signed main() {
     </div>
     </div>
     
+    <div id="player"></div>
+    
         <footer id="footer" class="footer">
             <div class="copyright">
                 
@@ -452,6 +457,49 @@ signed main() {
         
                 <script>
                     
+
+                    function LoadPlayer() {
+                        var music_array = [];
+                        
+                        music_array.push({
+                            name: '无敌破环王 - 主题曲',
+                            url: 'https://oi-master.github.io/music/Henry Jackman - Wreck-It Ralph Main Title.mp3',
+                            artist: 'Henry Jackman',
+                            cover: 'https://oi-master.github.io/music/A.jpg',
+                        });
+                        
+                        music_array.push({
+                            name: '花之圆舞曲',
+                            url: 'https://oi-master.github.io/music/Pyotr Ilyich Tchaikovsky - 花之圆舞曲.mp3',
+                            artist: '柴可夫斯基',
+                            cover: 'https://oi-master.github.io/music/B.jpg',
+                        });
+                        
+                        music_array.push({
+                            name: '义勇军进行曲',
+                            url: 'https://oi-master.github.io/music/中国人民解放军军乐团 - 义勇军进行曲 (军乐队版_演奏一遍).mp3',
+                            artist: '田汉',
+                            cover: 'https://oi-master.github.io/music/C.jpg',
+                        });
+                        
+                        music_array.push({
+                            name: '中国人民解放军军乐团 - 春节序曲.mp3',
+                            url: 'https://oi-master.github.io/music/中国人民解放军军乐团 - 春节序曲.mp3',
+                            artist: '李焕之',
+                            cover: 'https://oi-master.github.io/music/D.jpg',
+                        });
+                        
+                        console.log(" MusicList: " + music_array);
+                        
+                        const ap = new APlayer({
+                            container: document.getElementById('player'),
+                            fixed: true,
+                            audio: music_array
+                        });
+                        
+                    }
+                    LoadPlayer();
+                    
                     
                     
                     hitokoto();
@@ -463,7 +511,7 @@ signed main() {
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1586352884910);
+                    newDate.setTime(1586386318726);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
@@ -493,6 +541,8 @@ signed main() {
                     </script>
                     <script>
                         var wearther_margin = "10px 10px";
+                        
+                        wearther_margin = "70px 5px";
                         
                         tpwidget("init", {
                             "flavor": "bubble",
