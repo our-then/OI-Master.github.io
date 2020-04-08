@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-08T09:14:27.384Z</updated>
+    <updated>2020-04-08T09:32:32.386Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -122,7 +122,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-contest-1010-b-and-1011-d-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1010-b-and-1011-d-ti-jie/">
         </link>
-        <updated>2020-04-06T23:37:08.000Z</updated>
+        <updated>2020-04-06T15:37:08.000Z</updated>
         <summary type="html"><![CDATA[<p>不出你的意料，今天我又来写题解了（你可能会问我为什么还没有开学）。这一次我写的题解是一道交互题的题解，毕竟是第一次写这种交互题的题解，写得不太好请大家别太在意，您可以在评论区来留言，我会根据你的留言来完善一下本篇题解或是下一篇题解。<br>
 好的，我们仍然按照老配方，题面先。</p>
 ]]></summary>
@@ -131,7 +131,7 @@ signed main() {
 <!-- more -->
 <h2 id="题面">题面</h2>
 <h3 id="英文题面">英文题面</h3>
-<p>如果你以前看过我写 Codeforces 的题解，你应该很清楚， <a href="https://codeforces.com/contest/1010/problem/B">这里</a>会挂个链接，而不会写题面。你现在发现链接在哪里了吗？</p>
+<p>如果你以前看过我写 Codeforces 的题解，你应该很清楚， <a href="https://codeforces.com/contest/1010/problem/B">这里</a>会挂个链接，而不会写题面。</p>
 <h3 id="中文题面">中文题面</h3>
 <p>请去 <a href="https://www.luogu.com.cn/problem/CF1010B">洛谷站内</a> 了解。嘿，有点过分，上次是直接复制洛谷的翻译，这次只给个链接？！是的，没错，翻译的很好，“抽风”这个词十分得恰当。</p>
 <h2 id="思路">思路</h2>
