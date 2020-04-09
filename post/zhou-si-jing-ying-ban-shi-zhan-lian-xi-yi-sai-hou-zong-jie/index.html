@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1586394718213" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1586395803987" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1586394718213" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1586395803987" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -184,9 +184,9 @@
                                         </a>
                                         <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-04-01</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">16.1
+                                    href="#">14.1
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">3128</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">2800</a></span>
                                         
                                                 阅读量:
                                                 <span data-hk-page="current"> - </span>
@@ -203,96 +203,7 @@
 <p>暴力算法很显然，我们枚举所有的前腿，然后在后面枚举所有的后腿，找到一个就说明配成一对，但是时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> ，会超时，过不了。<br>
 其实这一道题真的不难，我们发现，找到一双后脚，就可以与前面所有的前脚来搭配。所以就是一个典型的模拟题， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 时间复杂度。这种算法显然能过。</p>
 <h3 id="代码">代码</h3>
-<pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
-#include &lt;queue&gt;
-using namespace std;
-
-#define NMAX 500
-#define MMAX 500
-#define infinite 1000000000000000000LL
-
-struct edge {
-    int dest;
-    long long latency, cap;
-    edge(int dest, long long latency, long long cap) :
-        dest(dest), latency(latency), cap(cap) { }
-};
-vector&lt;edge&gt; edges[NMAX];
-long long caps[MMAX];
-
-struct entry {
-    int v;
-    long long dist;
-    entry(int v, long long dist) : v(v), dist(dist) { }
-    bool operator&lt;(entry const&amp; o) const {
-        return dist &gt; o.dist;
-    }
-};
-
-bool visited[NMAX];
-long long minL(int n, int source, int dest, int minCap) {
-    for (int i = 0; i &lt; n; i++) {
-        visited[i] = false;
-    }
-    priority_queue&lt;entry&gt; q;
-    q.push(entry(source, 0));
-    while(q.size() &gt; 0) {
-        entry cur = q.top();
-        q.pop();
-        if (visited[cur.v]) {
-            continue;
-        }
-        if (cur.v == dest) {
-            return cur.dist;
-        }
-        visited[cur.v] = true;
-        for (int i = 0; i &lt; edges[cur.v].size(); i++) {
-            edge e = edges[cur.v][i];
-            if (e.cap &gt;= minCap) {
-                q.push(entry(e.dest, cur.dist + e.latency));
-            }
-        }
-    }
-    return infinite;
-}
-
-int main() {
-    freopen(&quot;d.in&quot;,&quot;r&quot;,stdin);
-    freopen(&quot;d.out&quot;,&quot;w&quot;,stdout);
-
-    int n, m;
-    long long X;
-    scanf(&quot;%d&quot;, &amp;n);
-    scanf(&quot;%d&quot;, &amp;m);
-    scanf(&quot;%lld&quot;, &amp;X);
-    for (int i = 0; i &lt; m; i++) {
-        int a, b;
-        long long l, c;
-        scanf(&quot;%d&quot;, &amp;a);
-        scanf(&quot;%d&quot;, &amp;b);
-        scanf(&quot;%lld&quot;, &amp;l);
-        scanf(&quot;%lld&quot;, &amp;c);
-        a--;
-        b--;
-        edges[a].push_back(edge(b, l, c));
-        edges[b].push_back(edge(a, l, c));
-        caps[i] = c;
-    }
-
-    long long mintime = infinite;
-    for (int i = 0; i &lt; m; i++) {
-        long long c = caps[i];
-        long long l = minL(n, 0, n-1, c);
-        if (l != infinite) {
-            mintime = min(mintime, l + X/c);
-        }
-    }
-    printf(&quot;%lld\n&quot;, mintime);
-}
-</code></pre>
-<p><s>我的码风实在是诡异，所以就挂上标程了</s></p>
+<p>不给，写的不难，挺简单的，我这只菜鸡都 AC 了。</p>
 <h2 id="b-题">B 题</h2>
 <p>第一题满分了，现在充满信心的看 B 题。但是我一看 B 题就马上傻了，心里只有暴力。</p>
 <h3 id="思路-2">思路</h3>
@@ -828,12 +739,12 @@ int main(void)
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
                                                                     <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/zhou-si-jing-ying-ban-shi-zhan-lian-xi-yi-sai-hou-zong-jie/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/zhou-si-jing-ying-ban-shi-zhan-lian-xi-yi-sai-hou-zong-jie/&sharesource=qzone&title=周四精英班实战练习（一）赛后总结&pics=https://OI-Master.github.io/images/avatar.png?v=1586394718213&summary=&lt;p&gt;首先，大家放心，这篇文章并不会显示在我的博客首页上，只能通过这个链接访问，能做到保密。再说，我特地把名字起了好多个字，应该也没有人会蒙对这个链接吧……&lt;br&gt;
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/zhou-si-jing-ying-ban-shi-zhan-lian-xi-yi-sai-hou-zong-jie/&sharesource=qzone&title=周四精英班实战练习（一）赛后总结&pics=https://OI-Master.github.io/images/avatar.png?v=1586395803987&summary=&lt;p&gt;首先，大家放心，这篇文章并不会显示在我的博客首页上，只能通过这个链接访问，能做到保密。再说，我特地把名字起了好多个字，应该也没有人会蒙对这个链接吧……&lt;br&gt;
 好了，不说外话了，我们先看一下题目吧。&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
                                                                     <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/zhou-si-jing-ying-ban-shi-zhan-lian-xi-yi-sai-hou-zong-jie/&sharesource=weibo&title=周四精英班实战练习（一）赛后总结 + " - " + &lt;p&gt;首先，大家放心，这篇文章并不会显示在我的博客首页上，只能通过这个链接访问，能做到保密。再说，我特地把名字起了好多个字，应该也没有人会蒙对这个链接吧……&lt;br&gt;
 好了，不说外话了，我们先看一下题目吧。&lt;/p&gt;
-&pic="https://OI-Master.github.io/images/avatar.png?v=1586394718213 "><i class="fa fa-weibo "></i></a>
+&pic="https://OI-Master.github.io/images/avatar.png?v=1586395803987 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -984,7 +895,7 @@ int main(void)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1586394718213);
+                    newDate.setTime(1586395803987);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
