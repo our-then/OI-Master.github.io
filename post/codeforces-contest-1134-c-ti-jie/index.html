@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Codeforces Contest 32 D 题解
+                                Codeforces Contest 1134 C 题解
                             </h1>
                             
                                     <!--zh-->
@@ -182,11 +182,11 @@
                                         <a itemprop="author" rel="author" href="/">
                                             TianyuZhou
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-04-06</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-04-09</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">2.4
+                                    href="#">2.9
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">507</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">698</a></span>
                                         
                                             <span class="post-category">&#x5206;&#x7C7B;:
                                 
@@ -205,52 +205,63 @@
                                     
                         </header>
                         <div class="post-content">
-                            <p>早上六点打的虚拟比赛，差点 AK ，就差一个 E 题。最后发现 E 题不论是 洛谷 还是 Codeforces 都没有题解，而看 CF 正确的源代码又看不懂，我太难了……<br>
-题面请在洛谷里看，我这里不做介绍。<br>
-我们先讲思路吧。</p>
+                            <p>这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。</p>
 <!-- more -->
+<h2 id="题面">题面</h2>
+<h3 id="英文题面">英文题面</h3>
+<p>为什么要给呢，直接去 <a href="https://codeforces.com/contest/1334/problem/C">这里</a> 就好了啊。</p>
+<h3 id="中文题面">中文题面</h3>
+<p>有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 头凶猛的怪兽，他们围成一个圈圈，顺时针编号 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, \dots , N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 每一头怪兽都有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 个属性——一个是它的生命值，第二个是它的爆炸值。爆炸会发生在它生命值小于等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，就是说他死掉的时候，它的下一头怪兽会遭到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">它</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">爆</mi><mi mathvariant="normal">炸</mi><mi mathvariant="normal">值</mi></mrow><annotation encoding="application/x-tex">它的爆炸值</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">它</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">爆</span><span class="mord cjk_fallback">炸</span><span class="mord cjk_fallback">值</span></span></span></span> 点伤害。如果下一头怪兽已经死了，则无伤害。如果这回又把下一头怪兽给弄死了，那么下一头怪兽也会爆炸，连环炸到下下头怪兽……你还有一把枪，每发子弹可以伤害一头怪兽的生命值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 点。问你，把怪兽都炸掉，要用多少子弹。</p>
 <h2 id="思路">思路</h2>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 才 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>300</mn></mrow><annotation encoding="application/x-tex">300</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mord">0</span></span></span></span> ？那就写个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 算法。啪啪啪啪啪啪啪啪……咦？居然过<br>
-了？！<br>
-这道题的数据很小呢，所以发现这道题纯考你的手熟不熟，思维不难。<br>
-我们先枚举半径（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> ，从小到大），然后枚举行（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> ，从小到大），再枚举列（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> ，还是从小到大），然后我们每次判断存不存在当中心点为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i, j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>，半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> 的十字形星座。如果有，那么就把总数加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。如果总数到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，那么我们就打印。<br>
-如果最后啥也没打出来（也就是说，总数小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>），那么就输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>。<br>
-如此简单，这上面就算是一种伪代码了（难道不是吗？</p>
+<p>我们知道，打掉怪兽有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 种可能。第一种，就是专门拿枪一发一发地打它，一种是先打 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">生</mi><mi mathvariant="normal">命</mi><mi mathvariant="normal">值</mi><mo>−</mo><mi mathvariant="normal">上</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">爆</mi><mi mathvariant="normal">炸</mi><mi mathvariant="normal">值</mi></mrow><annotation encoding="application/x-tex">这个怪兽的生命值-上个怪兽的爆炸值</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">生</span><span class="mord cjk_fallback">命</span><span class="mord cjk_fallback">值</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">上</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">爆</span><span class="mord cjk_fallback">炸</span><span class="mord cjk_fallback">值</span></span></span></span> 发，也就是说，最后让上一个怪兽把它爆掉。我们发现，不管怎么打， “<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">生</mi><mi mathvariant="normal">命</mi><mi mathvariant="normal">值</mi><mo>−</mo><mi mathvariant="normal">上</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">爆</mi><mi mathvariant="normal">炸</mi><mi mathvariant="normal">值</mi></mrow><annotation encoding="application/x-tex">这个怪兽的生命值-上个怪兽的爆炸值</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">生</span><span class="mord cjk_fallback">命</span><span class="mord cjk_fallback">值</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">上</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">爆</span><span class="mord cjk_fallback">炸</span><span class="mord cjk_fallback">值</span></span></span></span> 发”肯定是要的，于是我们先打这么多发。<br>
+这时候，又出现了一个情况。我们发现，在怪兽中间，出现了一个“环”，只要有一个怪兽死了，大家都会被连环炸掉。所以，我们只需要打死现在生命值最小的怪兽即可。</p>
 <h2 id="代码">代码</h2>
-<p>给上 C++ 实现的代码</p>
+<p>别抄袭啊！</p>
 <pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
+ * You can download the binary file in here https://github.com/xalanq/cf-tool
  * Author: OI_Master
- * Time: 2020-03-31 07:20:10
+ * Time: 2020-04-10 15:45:27
 **/
 #include&lt;bits/stdc++.h&gt;
 using namespace std;
 #define int long long
-signed main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int n,m,k;
-    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;
-    char c[n+1][m+1];
-    for(int i=1;i&lt;=n;++i)
-    	for(int j=1;j&lt;=m;++j)
-    		cin&gt;&gt;c[i][j];
-    int num=0;
-    for(int r=1;r&lt;=min(n,m);++r)
-    	for(int i=r+1;i+r&lt;=n;++i)
-    		for(int j=r+1;j+r&lt;=m;++j)
-    			if(c[i][j]=='*'&amp;&amp;c[i-r][j]=='*'&amp;&amp;c[i+r][j]=='*'&amp;&amp;c[i][j-r]=='*'&amp;&amp;c[i][j+r]=='*'){
-    				if(num==k-1){
-    					cout&lt;&lt;i&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i-r&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i+r&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i&lt;&lt;' '&lt;&lt;j-r&lt;&lt;endl&lt;&lt;i&lt;&lt;' '&lt;&lt;j+r&lt;&lt;endl;
-    					return 0;
-    				}
-    				else
-    					++num;
-    			}
-    cout&lt;&lt;-1&lt;&lt;endl;
-    return 0;
+struct node{
+	int h;
+	int b;
+	int c;
+};
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int t;
+	cin&gt;&gt;t;
+	while(t--){
+		int n;
+		cin&gt;&gt;n;
+		node a[n];
+		for(int i=0;i&lt;n;++i)
+			cin&gt;&gt;a[i].h&gt;&gt;a[i].b;
+		if(n==1){
+			cout&lt;&lt;a[0].h&lt;&lt;endl;
+			continue;
+		}
+		a[0].c=a[0].h-a[n-1].b;
+		for(int i=1;i&lt;n;++i)
+			a[i].c=a[i].h-a[i-1].b;
+		int sum=0;
+		for(int i=0;i&lt;n;++i)
+			if(a[i].c&gt;0){
+				sum+=a[i].c;
+				a[i].h-=a[i].c;
+			}
+		int minv=1000000000000;
+		for(int i=0;i&lt;n;++i)
+			minv=min(minv,a[i].h);
+		cout&lt;&lt;sum+minv&lt;&lt;endl;
+	}
+	return 0;
 }
 </code></pre>
-<p>本文到此结束。</p>
 
                         </div>
                         
@@ -258,6 +269,12 @@ signed main(){
                                 <ul class="markdownIt-TOC">
 <li>
 <ul>
+<li><a href="#%E9%A2%98%E9%9D%A2">题面</a>
+<ul>
+<li><a href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2">英文题面</a></li>
+<li><a href="#%E4%B8%AD%E6%96%87%E9%A2%98%E9%9D%A2">中文题面</a></li>
+</ul>
+</li>
 <li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
 <li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
 </ul>
@@ -277,7 +294,7 @@ signed main(){
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/">https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/</a></span>
+                                                    <span><a href="https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/">https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -292,14 +309,10 @@ signed main(){
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/&sharesource=qzone&title=Codeforces Contest 32 D 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1586561763921&summary=&lt;p&gt;早上六点打的虚拟比赛，差点 AK ，就差一个 E 题。最后发现 E 题不论是 洛谷 还是 Codeforces 都没有题解，而看 CF 正确的源代码又看不懂，我太难了……&lt;br&gt;
-题面请在洛谷里看，我这里不做介绍。&lt;br&gt;
-我们先讲思路吧。&lt;/p&gt;
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/&sharesource=qzone&title=Codeforces Contest 1134 C 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1586561763921&summary=&lt;p&gt;这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/&sharesource=weibo&title=Codeforces Contest 32 D 题解 + " - " + &lt;p&gt;早上六点打的虚拟比赛，差点 AK ，就差一个 E 题。最后发现 E 题不论是 洛谷 还是 Codeforces 都没有题解，而看 CF 正确的源代码又看不懂，我太难了……&lt;br&gt;
-题面请在洛谷里看，我这里不做介绍。&lt;br&gt;
-我们先讲思路吧。&lt;/p&gt;
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/&sharesource=weibo&title=Codeforces Contest 1134 C 题解 + " - " + &lt;p&gt;这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。&lt;/p&gt;
 &pic="https://OI-Master.github.io/images/avatar.png?v=1586561763921 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
@@ -338,13 +351,9 @@ signed main(){
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://OI-Master.github.io/post/atcoder-abc-160-e-ti-jie/">
-                                                                                            Atcoder ABC 160 E 题解
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/codeforces-contest-132-c-ti-jie/">
-                                                                                                    Codeforces Contest 132 C 题解
+                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/suan-fa-nao-tu/">
+                                                                                                    算法脑图
                                                                                                 </a>
                                                                                                 
                                                                                 </section>

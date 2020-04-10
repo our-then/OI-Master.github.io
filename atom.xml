@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-09T22:53:31.975Z</updated>
+    <updated>2020-04-10T23:36:24.923Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -10,6 +10,73 @@
     <logo>https://OI-Master.github.io/images/avatar.png</logo>
     <icon>https://OI-Master.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TianyuZhou</rights>
+    <entry>
+        <title type="html"><![CDATA[Codeforces Contest 1134 C 题解]]></title>
+        <id>https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/</id>
+        <link href="https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/">
+        </link>
+        <updated>2020-04-09T23:05:06.000Z</updated>
+        <summary type="html"><![CDATA[<p>这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。</p>
+<!-- more -->
+<h2 id="题面">题面</h2>
+<h3 id="英文题面">英文题面</h3>
+<p>为什么要给呢，直接去 <a href="https://codeforces.com/contest/1334/problem/C">这里</a> 就好了啊。</p>
+<h3 id="中文题面">中文题面</h3>
+<p>有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 头凶猛的怪兽，他们围成一个圈圈，顺时针编号 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">1, 2, 3, 4, \dots , N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 每一头怪兽都有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 个属性——一个是它的生命值，第二个是它的爆炸值。爆炸会发生在它生命值小于等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，就是说他死掉的时候，它的下一头怪兽会遭到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">它</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">爆</mi><mi mathvariant="normal">炸</mi><mi mathvariant="normal">值</mi></mrow><annotation encoding="application/x-tex">它的爆炸值</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">它</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">爆</span><span class="mord cjk_fallback">炸</span><span class="mord cjk_fallback">值</span></span></span></span> 点伤害。如果下一头怪兽已经死了，则无伤害。如果这回又把下一头怪兽给弄死了，那么下一头怪兽也会爆炸，连环炸到下下头怪兽……你还有一把枪，每发子弹可以伤害一头怪兽的生命值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 点。问你，把怪兽都炸掉，要用多少子弹。</p>
+<h2 id="思路">思路</h2>
+<p>我们知道，打掉怪兽有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 种可能。第一种，就是专门拿枪一发一发地打它，一种是先打 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">生</mi><mi mathvariant="normal">命</mi><mi mathvariant="normal">值</mi><mo>−</mo><mi mathvariant="normal">上</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">爆</mi><mi mathvariant="normal">炸</mi><mi mathvariant="normal">值</mi></mrow><annotation encoding="application/x-tex">这个怪兽的生命值-上个怪兽的爆炸值</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">生</span><span class="mord cjk_fallback">命</span><span class="mord cjk_fallback">值</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">上</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">爆</span><span class="mord cjk_fallback">炸</span><span class="mord cjk_fallback">值</span></span></span></span> 发，也就是说，最后让上一个怪兽把它爆掉。我们发现，不管怎么打， “<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">生</mi><mi mathvariant="normal">命</mi><mi mathvariant="normal">值</mi><mo>−</mo><mi mathvariant="normal">上</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">怪</mi><mi mathvariant="normal">兽</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">爆</mi><mi mathvariant="normal">炸</mi><mi mathvariant="normal">值</mi></mrow><annotation encoding="application/x-tex">这个怪兽的生命值-上个怪兽的爆炸值</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">生</span><span class="mord cjk_fallback">命</span><span class="mord cjk_fallback">值</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">上</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">怪</span><span class="mord cjk_fallback">兽</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">爆</span><span class="mord cjk_fallback">炸</span><span class="mord cjk_fallback">值</span></span></span></span> 发”肯定是要的，于是我们先打这么多发。<br>
+这时候，又出现了一个情况。我们发现，在怪兽中间，出现了一个“环”，只要有一个怪兽死了，大家都会被连环炸掉。所以，我们只需要打死现在生命值最小的怪兽即可。</p>
+<h2 id="代码">代码</h2>
+<p>别抄袭啊！</p>
+<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
+ * You can download the binary file in here https://github.com/xalanq/cf-tool
+ * Author: OI_Master
+ * Time: 2020-04-10 15:45:27
+**/
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+struct node{
+	int h;
+	int b;
+	int c;
+};
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int t;
+	cin&gt;&gt;t;
+	while(t--){
+		int n;
+		cin&gt;&gt;n;
+		node a[n];
+		for(int i=0;i&lt;n;++i)
+			cin&gt;&gt;a[i].h&gt;&gt;a[i].b;
+		if(n==1){
+			cout&lt;&lt;a[0].h&lt;&lt;endl;
+			continue;
+		}
+		a[0].c=a[0].h-a[n-1].b;
+		for(int i=1;i&lt;n;++i)
+			a[i].c=a[i].h-a[i-1].b;
+		int sum=0;
+		for(int i=0;i&lt;n;++i)
+			if(a[i].c&gt;0){
+				sum+=a[i].c;
+				a[i].h-=a[i].c;
+			}
+		int minv=1000000000000;
+		for(int i=0;i&lt;n;++i)
+			minv=min(minv,a[i].h);
+		cout&lt;&lt;sum+minv&lt;&lt;endl;
+	}
+	return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[算法脑图]]></title>
         <id>https://OI-Master.github.io/post/suan-fa-nao-tu/</id>
@@ -700,73 +767,6 @@ apt update &amp;&amp; sudo apt install -y vim python-pip curl git
 <p>感谢中国科学技术大学开源软件镜像站、DaoCloud、阿里巴巴开源镜像站和清华大学开源软件镜像站，没有他们的镜像服务，我们不可能得到如此稳定的连接，也不可能如此简单快捷地完成部署过程。<br>
 Qduoj的官方参考文档可以登陆： <a href="https://docs.onlinejudge.me/#/">https://docs.onlinejudge.me/#/</a>  查看<br>
 如果有实在不会的，请在评论留言，我会加以说明。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Codeforces Contest 6 E 题解]]></title>
-        <id>https://OI-Master.github.io/post/codeforces-contest-6-e-ti-jie/</id>
-        <link href="https://OI-Master.github.io/post/codeforces-contest-6-e-ti-jie/">
-        </link>
-        <updated>2020-03-23T21:27:46.000Z</updated>
-        <summary type="html"><![CDATA[<p>今天是我博客建立一个月的日子。为了欢庆这一天，我又来写题解了。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>今天是我博客建立一个月的日子。为了欢庆这一天，我又来写题解了。</p>
-<!-- more -->
-<h2 id="题面">题面</h2>
-<h3 id="英文题面">英文题面</h3>
-<p>上 <a href="https://codeforces.com/contest/6/problem/E">这里</a> ， Codeforces 官网，加载太慢不关我事！</p>
-<h3 id="中文题面">中文题面</h3>
-<p>本来是我要翻译的，不过 <a href="https://www.luogu.com.cn/">洛谷</a> 是一个很好的社区，这次我不翻译了，大家去 <a href="https://www.luogu.com.cn/problem/CF6E">CF6E</a> 来看题目吧！</p>
-<h2 id="思路">思路</h2>
-<p>这一道题， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">N\leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span> ，我们知道，这种数据一定是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mi>l</mi><mi>o</mi><msubsup><mi>g</mi><mn>2</mn><mi>N</mi></msubsup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(Nlog_2^N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 的时间复杂度。但是，我们用什么方法呢？排序？二分答案？二叉堆？这样空想是一定不行的，我们要有针对性的想。<br>
-我们觉得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">log</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span> 不太好想，也许只是一个小算法的时间复杂度。我们可以像是“往宏观”走，去想想这道题有没有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 的算法。<br>
-我们发现，想要是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 的话，暂时就是“双指针”算法。这个算法是可以的，我来讲一下什么情况下要干嘛。</p>
-<ul>
-<li>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>L</mi></msub><mo separator="true">,</mo><msub><mi>A</mi><mi>L</mi></msub><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>A</mi><mi>R</mi></msub><mo>−</mo><mn>1</mn><mo separator="true">,</mo><msub><mi>A</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">A_L, A_L+1, ... , A_R-1, A_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 不满足条件的时候，我们可以把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">L+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，这样子，就有可能合法。至于到底合不合法，可以稍后判断。</li>
-<li>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>L</mi></msub><mo separator="true">,</mo><msub><mi>A</mi><mi>L</mi></msub><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>A</mi><mi>R</mi></msub><mo>−</mo><mn>1</mn><mo separator="true">,</mo><msub><mi>A</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">A_L, A_L+1, ... , A_R-1, A_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 合法的时候，也就是满足这个条件后，我们可以先比较一下长度。如果长度比原来存的序列长度长，那么就更新一下长度，把答案数量再改成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，接下来，我们再把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">R+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。如果还是不了解我的意思，可以在评论区留言。<br>
-不过，我们如何找到“最大值”与“最小值”呢？大家可以搞个单调队列，不过我在这里推荐 multiset 。不懂的自己查百度。</li>
-</ul>
-<h2 id="代码">代码</h2>
-<p>然后，就是可爱的代码啦！</p>
-<pre><code class="language-cpp">/*
- * Generated by powerful Codeforces Tool
- * Author: OI_Master
- * Time: 2020-03-24 10:01:05
-*/
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-signed main(){
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n,k;
-	cin&gt;&gt;n&gt;&gt;k;
-	multiset&lt;int&gt;m;
-	int j=1;
-	int a[n+1];
-	int maxs=0;
-	vector&lt;pair&lt;int,int&gt; &gt;ans;
-	for(int i=1;i&lt;=n;++i){
-		cin&gt;&gt;a[i];
-		m.insert(a[i]);
-		while(*(m.rbegin())-*(m.begin())&gt;k){
-			m.erase(m.find(a[j]));
-			++j;
-		}
-		if(i-j+1&gt;maxs){
-			ans.clear();
-			maxs=i-j+1;
-			ans.push_back(make_pair(j,i));
-		}
-		else if(i-j+1==maxs)
-			ans.push_back(make_pair(j,i));
-	}
-	cout&lt;&lt;maxs&lt;&lt;' '&lt;&lt;ans.size()&lt;&lt;endl;
-	for(int i=0;i&lt;ans.size();++i)
-		cout&lt;&lt;ans[i].first&lt;&lt;' '&lt;&lt;ans[i].second&lt;&lt;endl;
-	return 0;
-}
-</code></pre>
 ]]></content>
     </entry>
 </feed>
