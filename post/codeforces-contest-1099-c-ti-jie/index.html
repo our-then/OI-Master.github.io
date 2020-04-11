@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Notepad++
+                                Codeforces Contest 1099 C 题解
                             </h1>
                             
                                     <!--zh-->
@@ -182,17 +182,19 @@
                                         <a itemprop="author" rel="author" href="/">
                                             TianyuZhou
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-03-05</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-04-10</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">9.0
+                                    href="#">5.5
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">2522</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1185</a></span>
                                         
                                             <span class="post-category">&#x5206;&#x7C7B;:
                                 
+                                <a href="https://OI-Master.github.io/tag/XDNpW9w8i/">题解</a>
+                                
                                 <a href="https://OI-Master.github.io/tag/QTCptIBFw/">编程</a>
                                 
-                                <a href="https://OI-Master.github.io/tag/PvNVZtO8R1/">工具</a>
+                                <a href="https://OI-Master.github.io/tag/E6yXG6rkR/">Codeforces</a>
                                 
                             </span>
                                             
@@ -203,150 +205,170 @@
                                     
                         </header>
                         <div class="post-content">
-                            <p>Notepad++ 是 Windows 操作系统下的文本编辑器，支持多国语言、多种编码、多种编程语言的高亮和补全。它的 logo 也十分可爱，是一只变色龙。</p>
+                            <p>我又来写题解了！</p>
 <!-- more -->
-<p><img src="https://OI-Master.github.io/post-images/1583488215904.webp" alt="Notepad++Logo" loading="lazy"><br>
-不得不说这只小变色龙十分滑稽，不过我们先不谈了。我们现在谈的是这个软件的功能。这些功能比其他的编辑软件强大许多，例如打开一个超大文件更稳定，不容易崩溃，不停地撤销的时候也不会出什么问题。而且，就算是你忘记保存也没关系。这个程序会自动把所有文件的暂时修改本存在缓冲区，不过在一些版本中可能要进行配置。这个东西也很小巧，只有 10MB+ ，我们甚至可以把它装在闪存（也就是 U盘 ）里随身携带。</p>
-<h2 id="如何下载">如何下载</h2>
-<p>我们可以打开 <a href="https://notepad-plus-plus.org/">软件官网</a> ，如果你上不去也可以上 <a href="https://notepad-plus.en.softonic.com/">可靠的第三方网站</a> ，然后去 <a href="https://notepad-plus-plus.org/downloads">Download 页面</a> 选择版本下载，推荐下载最新版，不过本次演示用的是 7.7.1 版本的，但是应该页面没什么改动。如果你的电脑是 64 位 的，强烈建议下载 64 位，因为这个软件的许多插件只能支持 64 位 。不过如果你渴望兼容性，也可以下载 32 位。如果你的网络实在上不了外国网站，也可以尝试各种软件园，不过有一定的风险。不过，我在我的微云上也传上了一个 Windows 系统的安装包，你可以在 <a href="https://share.weiyun.com/5BdILWJ">这里</a> 下载，密码就是 123456。<br>
-你会发现，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 种下载方法：</p>
-<ol>
-<li>installer——安装包模式，当你没有任何其他想法时的推荐模式。</li>
-<li>zip/7z package——压缩包模式，当你不想用安装包时可以直接下载 -&gt; 解压 -&gt; 使用。</li>
-<li>minimalist package——迷你模式，没有主题、插件和升级包，下载、安装更快捷。</li>
-</ol>
-<p>我们这里用最推荐的安装包模式做范例。<br>
-<img src="https://OI-Master.github.io/post-images/1583560575707.png" alt="install-1" loading="lazy"><br>
-请双击这个安装包，选择语言，接受协议，选择安装位置，然后安装内容：<br>
-<img src="https://OI-Master.github.io/post-images/1583560655517.png" alt="install-2" loading="lazy"><br>
-因为窗口大小有限，所以后期 P 上了一个没进来的选项，大家不要在意这些细节。<br>
-我们先介绍一下这些东西的中文名，按照顺序。</p>
-<ol>
-<li>自动编译功能（是吗？使用时没有这个感觉）</li>
-<li>自带插件功能</li>
-<li>自动升级插件</li>
-<li>自定义插件功能</li>
-<li>安装多国语言</li>
-<li>软件主题商店</li>
-<li>添加到右键菜单</li>
-</ol>
-<p>然后会出来这么一个页面：<br>
-<img src="https://OI-Master.github.io/post-images/1583560809139.png" alt="install-3" loading="lazy"><br>
-这里第一个勾勾是“是否创建桌面快捷方式”，第二个是“不要用 %APPDATA% ，也就是说，当你想在 闪存 里装的时候一定要勾上。<br>
-最后点击“安装”按钮即可。</p>
-<h2 id="更改界面语言">更改界面语言</h2>
-<p>打开以后，应该会是一个英文界面。这时，我们需要更改语言。不过这个我们需要动图来帮忙，这里不好描述。<br>
-<img src="https://OI-Master.github.io/post-images/1583561077816.gif" alt="lang" loading="lazy"><br>
-改完后，就可以魔改我们的编辑器啦！</p>
-<h2 id="初级玩法">初级玩法</h2>
-<h3 id="查找与替换">查找与替换</h3>
-<p>依次单击“（菜单栏）搜索”-&gt;“查找”（快捷键 <code>CTRL</code> + <code>F</code> ）即可打开“查找”页面（如下图）<br>
-<img src="https://OI-Master.github.io/post-images/1583561396174.png" alt="search" loading="lazy"><br>
-依次单击“（菜单栏）搜索”-&gt;“替换”（快捷键 <code>CTRL</code> + <code>H</code> ）即可打开“替换”页面（如下图）<br>
-<img src="https://OI-Master.github.io/post-images/1583561456676.png" alt="replace" loading="lazy"><br>
-其实查找、替换之间其实是一个窗口，单击上面的标签页就可以完成切换。<br>
-其功能与普通编辑器大同小异，但是支持更多，如：</p>
-<ol>
-<li>严格匹配或大小写匹配等</li>
-<li>跨文档匹配</li>
-<li>转义字符，如'\r'，'\n'。</li>
-<li>正则表达式</li>
-<li>计数</li>
-</ol>
-<h3 id="定期备份">定期备份</h3>
-<p><img src="https://OI-Master.github.io/post-images/1583561554253.png" alt="setting-1" loading="lazy"><br>
-有了这个功能，就可以不用费心地担心意外情况代码丢失啦！<br>
-但是，这个功能只是为你的文件拍了一个快照，并没有真正保存，所以还是建议要有良好的保存习惯。或者说可以去自带插件商店安装 &quot;Auto Save&quot; 插件（详见 高级玩法-&gt;插件 ，下同）。</p>
-<h3 id="书签功能">书签功能</h3>
-<p>在你需要的行按 <code>Ctrl</code> + <code>F2</code> 即可设放置或取消书签，放置过书签的行前段有一个蓝色圆点。<br>
-按 <code>F2</code> 可以定位到下一个书签。<br>
-如果你抱怨不方便，可以去自带插件商店安装“Bookmarks”插件</p>
-<h3 id="代码高亮">代码高亮</h3>
-<p>右击左下角的 &quot;XXX file&quot;，可以选择许多种语言高亮，C、C++、PASCAL、Markdown 等任你挑选。你甚至可以自己定义高亮！<br>
-如果你认为每一次打开文件都要更改高亮很麻烦，可以在“设置 -&gt; 首选项 -&gt; 新建 -&gt; 默认语言”中修改默认高亮。<br>
-需要渲染 Markdown 的，可以去插件商店安装 &quot;Markdown Viewer&quot;，还有更多类似插件等着你！</p>
-<h3 id="显示所有字符">显示所有字符</h3>
-<p><img src="https://OI-Master.github.io/post-images/1583562203399.png" alt="setting-2" loading="lazy"><br>
-点击红框所圈的按钮，就可以非（za）常（luan）清（wu）晰（zhang）地显示出“空格”、“TAB”、“换行”等原来不可见字符。</p>
-<h3 id="自动识别文件编码与换行符">自动识别文件编码与换行符</h3>
-<p>Notepad++ 可以自动识别当前文件编码是 UTF-8 还是 GB2312 甚至其他。<br>
-如果要使用不同的编码浏览文章，请依次单击“（菜单顶栏）编码”-&gt;“使用 XXX 编码”。如果想给文件换一个字符编码，请依次单击“（菜单顶栏）编码”-&gt;“转为 XXX 编码”。<br>
-它还可以自动识别换行符是 CR 、 LF 或 CRLF 。不用担心下载下来的数据被吞换行。<br>
-在底部信息栏，你可以看到 &quot;Windows(CR LF)&quot; 等字样，这就是当前文件的换行符。右击它，可以改变当前文件换行符。此操作配合“显示所有字符”更直观哟！</p>
-<h2 id="高级玩法">高级玩法</h2>
-<p>这个就适用于需求较高的用户。</p>
-<h3 id="宏">宏</h3>
-<p>宏可以帮助你完成许多重复的工作，例如，我要将奇数行的“abcde”改为“afce<br>
-”，需要两步。</p>
-<h4 id="录制宏">录制宏</h4>
-<figure data-type="image" tabindex="1"><img src="https://OI-Master.github.io/post-images/1583562496554.gif" alt="macro-rec" loading="lazy"></figure>
-<h4 id="使用宏">使用宏</h4>
-<figure data-type="image" tabindex="2"><img src="https://OI-Master.github.io/post-images/1583562533071.gif" alt="macro-use" loading="lazy"></figure>
-<h4 id="大量处理重复使用">大量处理，重复使用</h4>
-<p>如果是更多行呢？操作就需要一点改变。<br>
-首先是录制，一定要先按键盘上的 <code>HOME</code> 或 <code>END</code> 键将光标移动到行首或行尾，然后用方向键调整横向位置，再进行更改。最后一定要用方向键将光标移动到下一个要处理的行。<br>
-比如刚刚的例子，可以先按 <code>END</code> 键，然后依次按 <code>←</code> ， <code>Backspace</code> , <code>←</code> , <code>Backspace</code> , <code>F</code> ，最后按两下 <code>↓</code> ，最后停止录制。<br>
-然后是重播，先定位到第一个要处理的行（第 3 行），然后点击“宏”-&gt;“重复运行宏”。在弹出窗口设置要运行的宏（刚录制的一般是第一个），设置运行次数（或者直接运行到文件尾），点确定即可。</p>
-<h4 id="保存宏">保存宏</h4>
-<p>点击“宏”-&gt;“保存录制宏”，并设置名称和快捷键，即可保存，方便后续使用。</p>
-<h3 id="插件">插件</h3>
-<h4 id="插件管理">插件管理</h4>
-<p>打开功能栏的“插件”按钮，列表中会显示所有你安装过的插件。<br>
-再选择“插件管理”选项，即可管理你的插件。</p>
-<h4 id="安装插件商店">安装插件（商店）</h4>
-<ol>
-<li>打开“可用”选项卡，在列表中勾选你所要的插件</li>
-<li>点击右上角的“安装”按钮，按照提示重启软件即可。</li>
-</ol>
-<h4 id="安装插件手动">安装插件（手动）</h4>
-<ol>
-<li>下载插件（由第三方托管的官方地址： <a href="https://sourceforge.net/projects/npp-plugins/">https://sourceforge.net/projects/npp-plugins/</a> ）注意一定要选择 与安装 Notepad++ 时处理器架构相同 的插件。</li>
-<li>找到一个名为 &quot;XXX.dll&quot; 的文件（通常以插件名命名）。</li>
-<li>在 Notepad++ 中的功能栏点插件，并在列表中点“打开插件文件夹”。</li>
-<li>将刚才找到的 DLL 文件放入文件夹中，重启 Notepad++。</li>
-<li>【可选】删除刚才拷贝的文件， 但不要删除生成的文件夹！</li>
-</ol>
-<p>Tips: 如果多次不成功，可以尝试新建一个与插件名相同的文件夹在将 &quot;.dll&quot; 文件放入创建的文件夹中</p>
-<h4 id="更新插件">更新插件</h4>
-<p>在插件管理中，选择“更新”选项卡，并勾选要更新的插件，然后点右上角的“更新”按钮。</p>
-<h4 id="移除插件">移除插件</h4>
-<p>同样在插件管理中，选择“已安装”选项卡，并勾选要移除的插件，然后点右上角的“移除”按钮。</p>
-<h2 id="搭建开发环境">搭建开发环境</h2>
-<p>不只是编辑器！&quot;Notepad++&quot; 可谓神一样的存在，它可以通过傻瓜式地编译代码，甚至代替 IDE！这里以 C++ 为例</p>
-<ol>
-<li>安装编译器并将其必要的文件目录添加到 PATH 环境变量中。（C++ 需要添加 %APPPATH%\bin）当你在 cmd 中输入 g++ 时不再提示'g++'不是内部或外部命令……即可（中间可能需要重启电脑）。推荐 下载 <a href="https://sourceforge.net/projects/orwelldevcpp/files/Tools/ConsolePauser.exe/download">ConsolePauser</a> 然后随便放并将其目录添加到环境变量（此为 Dev-C++ 的插件，在 Dev-C++ 软件根目录也有）。</li>
-<li>在菜单栏中选择“运行”-&gt;“运行……”，打开“运行”窗口。</li>
-<li>分别输入以下命令</li>
-</ol>
-<pre><code>#编译命令：
-cmd /c g++.exe -o $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH)
-#运行命令：
-cmd /c $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH) &amp; pause
-#调试命令：
-cmd /c gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe
-
-#如果下载了ConsolePauser可以使用下列代码获得更好的程序运行体验！（注意添加环境变量！）
-
-#编译命令：
-cmd /c (start ConsolePauser &quot;g++.exe -o $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH)&quot;)
-#运行命令：
-cmd /c (start ConsolePauser &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot;)
-#调试命令：
-cmd /c (start ConsolePauser &quot;gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot;)
-单击“保存”，名字可以自己取，如 &quot;Compile&quot;,&quot;Run&quot; 等，然后设定好你想要的快捷键（捡好记的来，如 Dev-C++ 就分别是 F9 和 F10 ）。
-</code></pre>
-<p>尽情享受吧！</p>
-<h2 id="彩蛋">彩蛋</h2>
-<ol>
-<li>在运行安装程序时你会在下方看到这样一句话：</li>
-</ol>
+<h2 id="题面">题面</h2>
+<h3 id="英文题面">英文题面</h3>
+<p>链接在 <a href="https://codeforces.com/contest/1099/problem/C">这里</a> ，自己进去看。</p>
+<h3 id="中文题面">中文题面</h3>
+<p>翻译如下：</p>
 <blockquote>
-<p>&quot;The best things in life are free. Notepad++ is free. So Notepad++ is the best(.)&quot;<br>
-（生活中最好的事情都是免费的。Notepad++ 是免费的。所以 Notepad++ 是最好的。）</p>
+<p><strong>Description</strong><br>
+给定一个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的字符串，尽可能包含小写字母，字符 <code>?</code> 和字符 <code>*</code>。保证上面两种特殊字符若出现则一定出现在一个小写字母的后面一位。要求构造一个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的新字符串，它和原串有如下关系：</p>
+<ul>
+<li>按照原串的字母顺序向新串中填充，新串中含且仅含小写字母。</li>
+<li>若原串的某小写字母后没有特殊字符，则这个字母在新串中必须保留。</li>
+<li>若原串的某小写字母后有字符 <code>?</code>，则这个字母在新串中可以被保留，也可以被删除。</li>
+</ul>
+<p>若原串某小写字母后有字符 <code>*</code>，则这个字母在新串中可以被保留，可以被删除，也可以被复读很多遍。<br>
+<strong>Input</strong><br>
+第一行是一个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的字符串，保证输入合法；<br>
+第二行是一个整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 代表要求构造的新串长度。<br>
+<strong>Output</strong><br>
+输出一行一个长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的字符串，为构造出的串。<br>
+若不存在这样的串，输出 <code>Impossible</code>。<br>
+<strong>Hint</strong><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mi>k</mi><mo>≤</mo><mn>200</mn></mrow><annotation encoding="application/x-tex">1\leq n,k\leq 200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span></span></span></span><br>
+translated by <strong>一扶苏一</strong></p>
 </blockquote>
-<ol start="2">
-<li>在一个新开的页面中输入 &quot;random&quot; 并选中，再按 F1 就会得到一句很有意思的话。</li>
-</ol>
+<h2 id="思路">思路</h2>
+<p>这是一道经典的模拟。<br>
+由于宏观简单，我们就看微观了。</p>
+<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
+ * You can download the binary file in here https://github.com/xalanq/cf-tool
+ * Author: OI_Master
+ * Time: 2020-04-11 03:33:32
+**/
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+</code></pre>
+<p>毫无质量的东西，这些是板子。</p>
+<pre><code class="language-cpp">string s;
+int k;
+cin&gt;&gt;s&gt;&gt;k;
+</code></pre>
+<p>毫无质量的东西，这些是输入。</p>
+<pre><code class="language-cpp">int sum=0;                   
+for(int i=0;i&lt;s.size();++i)  
+	if(s[i]&gt;='a'&amp;&amp;s[i]&lt;='z') 
+		++sum;               
+	else if(s[i]=='*'){      
+		sum=10000000000000;  
+		break;               
+	}                        
+if(sum&lt;k){                   
+	cout&lt;&lt;&quot;Impossible&quot;&lt;&lt;endl;
+		return 0;
+}
+</code></pre>
+<p><s>毫无质量的东西，这些是循环。</s><br>
+我们发现，只要是字母都把它加上去，如果是 <code>*</code> 就说明能重复无数次。<br>
+原来是看最大能到多少。</p>
+<pre><code class="language-cpp">sum=0;                   
+for(int i=0;i&lt;s.size();++i)
+	if(s[i]=='?'||s[i]=='*')
+		--sum;
+	else
+		++sum;
+if(sum&gt;k){
+	cout&lt;&lt;&quot;Impossible&quot;&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<p><s>毫无质量的东西，这些也是循环。</s><br>
+才怪呢，我们再来看看这是什么用的。<br>
+我们发现，当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 是字母的话，那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span></span></span></span> 加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，如果是字符，就让 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span></span></span></span> 扣掉 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。<br>
+发现，我们算的东西就是最少长度是多少，只要一个字母后面有 <code>*</code> 或者是 <code>?</code> 的话，就不算这个字母（删掉）。<br>
+最后比较一下。</p>
+<pre><code class="language-cpp">vector&lt;char&gt;ans;
+for(int i=1;i&lt;s.size();++i)
+	if(s[i]&gt;='a'&amp;&amp;s[i]&lt;='z'&amp;&amp;s[i-1]&gt;='a'&amp;&amp;s[i-1]&lt;='z')
+		ans.push_back(s[i-1]);
+	else if(s[i]=='?'&amp;&amp;sum&lt;k){
+		++sum;
+		ans.push_back(s[i-1]);
+	}
+	else if(s[i]=='*'&amp;&amp;sum&lt;k)
+		while(sum&lt;k){
+			++sum;
+			ans.push_back(s[i-1]);
+		}
+</code></pre>
+<p>核心部分啦！<br>
+如果这个字符是字母，不是符号，前面一个也不是符号，那么就说明前面一个必须要选，进 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ans</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span></span></span></span> 里面。<br>
+否则，如果是问号的话，并且串长不够，那么就把字母压到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ans</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span></span></span></span> 里。<br>
+如果是 <code>*</code> 的话，那么可以把串长补到够，一直加，没有副作用。<br>
+这一段我故意写得稍微有些简洁，想让大家再看几下代码，好好理解。</p>
+<pre><code class="language-cpp">    if(s[s.size()-1]&gt;='a'&amp;&amp;s[s.size()-1]&lt;='z')
+		ans.push_back(s[s.size()-1]);
+	for(int i=0;i&lt;ans.size();++i)
+		cout&lt;&lt;ans[i];
+    return 0;
+}
+</code></pre>
+<p>这一段好像的确没什么难的了，就是打印。</p>
+<h2 id="代码">代码</h2>
+<p>完整代码如下：</p>
+<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
+ * You can download the binary file in here https://github.com/xalanq/cf-tool
+ * Author: OI_Master
+ * Time: 2020-04-11 03:33:32
+**/
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	string s;
+	int k;
+	cin&gt;&gt;s&gt;&gt;k;
+	int sum=0;
+	for(int i=0;i&lt;s.size();++i)
+		if(s[i]&gt;='a'&amp;&amp;s[i]&lt;='z')
+			++sum;
+		else if(s[i]=='*'){
+			sum=10000000000000;
+			break;
+		}
+	if(sum&lt;k){
+		cout&lt;&lt;&quot;Impossible&quot;&lt;&lt;endl;
+		return 0;
+	}
+	sum=0;
+	for(int i=0;i&lt;s.size();++i)
+		if(s[i]=='?'||s[i]=='*')
+			--sum;
+		else
+			++sum;
+	if(sum&gt;k){
+		cout&lt;&lt;&quot;Impossible&quot;&lt;&lt;endl;
+		return 0;
+	}
+	vector&lt;char&gt;ans;
+	for(int i=1;i&lt;s.size();++i)
+		if(s[i]&gt;='a'&amp;&amp;s[i]&lt;='z'&amp;&amp;s[i-1]&gt;='a'&amp;&amp;s[i-1]&lt;='z')
+			ans.push_back(s[i-1]);
+		else if(s[i]=='?'&amp;&amp;sum&lt;k){
+			++sum;
+			ans.push_back(s[i-1]);
+		}
+		else if(s[i]=='*'&amp;&amp;sum&lt;k)
+			while(sum&lt;k){
+				++sum;
+				ans.push_back(s[i-1]);
+			}
+	if(s[s.size()-1]&gt;='a'&amp;&amp;s[s.size()-1]&lt;='z')
+		ans.push_back(s[s.size()-1]);
+	for(int i=0;i&lt;ans.size();++i)
+		cout&lt;&lt;ans[i];
+	return 0;
+}
+</code></pre>
 
                         </div>
                         
@@ -354,41 +376,14 @@ cmd /c (start ConsolePauser &quot;gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot
                                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD">如何下载</a></li>
-<li><a href="#%E6%9B%B4%E6%94%B9%E7%95%8C%E9%9D%A2%E8%AF%AD%E8%A8%80">更改界面语言</a></li>
-<li><a href="#%E5%88%9D%E7%BA%A7%E7%8E%A9%E6%B3%95">初级玩法</a>
+<li><a href="#%E9%A2%98%E9%9D%A2">题面</a>
 <ul>
-<li><a href="#%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%9B%BF%E6%8D%A2">查找与替换</a></li>
-<li><a href="#%E5%AE%9A%E6%9C%9F%E5%A4%87%E4%BB%BD">定期备份</a></li>
-<li><a href="#%E4%B9%A6%E7%AD%BE%E5%8A%9F%E8%83%BD">书签功能</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE">代码高亮</a></li>
-<li><a href="#%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E5%AD%97%E7%AC%A6">显示所有字符</a></li>
-<li><a href="#%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81%E4%B8%8E%E6%8D%A2%E8%A1%8C%E7%AC%A6">自动识别文件编码与换行符</a></li>
+<li><a href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2">英文题面</a></li>
+<li><a href="#%E4%B8%AD%E6%96%87%E9%A2%98%E9%9D%A2">中文题面</a></li>
 </ul>
 </li>
-<li><a href="#%E9%AB%98%E7%BA%A7%E7%8E%A9%E6%B3%95">高级玩法</a>
-<ul>
-<li><a href="#%E5%AE%8F">宏</a>
-<ul>
-<li><a href="#%E5%BD%95%E5%88%B6%E5%AE%8F">录制宏</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%8F">使用宏</a></li>
-<li><a href="#%E5%A4%A7%E9%87%8F%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E4%BD%BF%E7%94%A8">大量处理，重复使用</a></li>
-<li><a href="#%E4%BF%9D%E5%AD%98%E5%AE%8F">保存宏</a></li>
-</ul>
-</li>
-<li><a href="#%E6%8F%92%E4%BB%B6">插件</a>
-<ul>
-<li><a href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86">插件管理</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%95%86%E5%BA%97">安装插件（商店）</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%89%8B%E5%8A%A8">安装插件（手动）</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0%E6%8F%92%E4%BB%B6">更新插件</a></li>
-<li><a href="#%E7%A7%BB%E9%99%A4%E6%8F%92%E4%BB%B6">移除插件</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">搭建开发环境</a></li>
-<li><a href="#%E5%BD%A9%E8%9B%8B">彩蛋</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
 </ul>
 </li>
 </ul>
@@ -406,7 +401,7 @@ cmd /c (start ConsolePauser &quot;gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://OI-Master.github.io/post/notepad/">https://OI-Master.github.io/post/notepad/</a></span>
+                                                    <span><a href="https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/">https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -421,10 +416,10 @@ cmd /c (start ConsolePauser &quot;gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/notepad/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/notepad/&sharesource=qzone&title=Notepad++&pics=https://OI-Master.github.io/images/avatar.png?v=1586580899883&summary=&lt;p&gt;Notepad++ 是 Windows 操作系统下的文本编辑器，支持多国语言、多种编码、多种编程语言的高亮和补全。它的 logo 也十分可爱，是一只变色龙。&lt;/p&gt;
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/&sharesource=qzone&title=Codeforces Contest 1099 C 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1586580899883&summary=&lt;p&gt;我又来写题解了！&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/notepad/&sharesource=weibo&title=Notepad++ + " - " + &lt;p&gt;Notepad++ 是 Windows 操作系统下的文本编辑器，支持多国语言、多种编码、多种编程语言的高亮和补全。它的 logo 也十分可爱，是一只变色龙。&lt;/p&gt;
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/&sharesource=weibo&title=Codeforces Contest 1099 C 题解 + " - " + &lt;p&gt;我又来写题解了！&lt;/p&gt;
 &pic="https://OI-Master.github.io/images/avatar.png?v=1586580899883 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
@@ -436,12 +431,16 @@ cmd /c (start ConsolePauser &quot;gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot
                                                                                     <span class="tag ">
                         
                         
+                        <a href="https://OI-Master.github.io/tag/XDNpW9w8i/">#
+                    题解
+                        </a>
+                        
                         <a href="https://OI-Master.github.io/tag/QTCptIBFw/">#
                     编程
                         </a>
                         
-                        <a href="https://OI-Master.github.io/tag/PvNVZtO8R1/">#
-                    工具
+                        <a href="https://OI-Master.github.io/tag/E6yXG6rkR/">#
+                    Codeforces
                         </a>
                         
                             
@@ -459,13 +458,9 @@ cmd /c (start ConsolePauser &quot;gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://OI-Master.github.io/post/codeforces-contest-1322-a-and-1323-c-ti-jie/">
-                                                                                            Codeforces Contest 1322 A &amp; 1323 C 题解
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/usaco-2020-february-contest-bronze-ti-jie/">
-                                                                                                     USACO 2020 February Contest, Bronze 题解
+                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/">
+                                                                                                    Codeforces Contest 1134 C 题解
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
