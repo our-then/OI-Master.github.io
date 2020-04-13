@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-13T01:17:42.332Z</updated>
+    <updated>2020-04-13T03:18:13.144Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://OI-Master.github.io/post/codeforces-shang-chuang-jian-mashup-bi-sai/</id>
         <link href="https://OI-Master.github.io/post/codeforces-shang-chuang-jian-mashup-bi-sai/">
         </link>
-        <updated>2020-04-11T21:12:19.000Z</updated>
+        <updated>2020-04-11T13:12:19.000Z</updated>
         <summary type="html"><![CDATA[<p>公开比赛必须要蓝名才能创建哦！Mashup 是私人比赛。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>公开比赛必须要蓝名才能创建哦！Mashup 是私人比赛。</p>
