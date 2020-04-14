@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-14T01:12:46.545Z</updated>
+    <updated>2020-04-14T11:58:18.444Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://OI-Master.github.io/post/codeforces-contest-1335-d-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1335-d-ti-jie/">
         </link>
-        <updated>2020-04-13T16:58:10.000Z</updated>
+        <updated>2020-04-13T08:58:10.000Z</updated>
         <summary type="html"><![CDATA[<p>这可以说是我在这场比赛中看到的最简单的题目。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>这可以说是我在这场比赛中看到的最简单的题目。</p>
@@ -24,14 +24,15 @@
 <h3 id="英文题面">英文题面</h3>
 <p>请到 <a href="https://codeforces.com/problemset/problem/1335/D">https://codeforces.com/problemset/problem/1335/D</a> 去查看。<s>另外，我告诉你们一个特大消息，我昨天奇迹地上去了主站！</s></p>
 <h3 id="中文题面">中文题面</h3>
-<p>由于某谷里没有翻译，我就手打吧（没法偷懒了<br>
-就是给你一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">9\times 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> 的普通数独，九宫格数独，已经填好的，保证合法。如果你不知道数独的规则，可以到 <a href="https://oi-master.github.io/post/yong-c-yu-yan-shi-xian-shu-du/#%E8%A7%84%E5%88%99">这里</a> 查看，也是我写的。<br>
+<p>就是给你一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>×</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">9\times 9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> 的普通数独，九宫格数独，已经填好的，保证合法。如果你不知道数独的规则，可以到 <a href="https://oi-master.github.io/post/yong-c-yu-yan-shi-xian-shu-du/#%E8%A7%84%E5%88%99">这里</a> 查看，也是我写的。<br>
 <img src="https://OI-Master.github.io/post-images/1586826661046.png" alt="数独" loading="lazy"><br>
 然后我们需要改变最多 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> 个数，是这个数独变成一个 Anti-Sudoku ，它的意思是，每行每列每宫中至少有两个数相等。<br>
 输入一个数独，输出你改的 Anti-Sudoku ，如果有多种解， You can print any。<br>
 你需要回答 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> 组数据。</p>
 <h2 id="思路">思路</h2>
-<p>好水呢，根据研究，我们只需要把所有的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 改成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 即可。</p>
+<p>根据我的小研究，我们只需要把所有的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 改成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 即可。<br>
+为什么这样子就可以？因为，这个原来的数独就是一个满足九宫格数独的要求，就是说每行、每列、每宫都没有重复，那么改一下 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，可以保证行至少有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> （原来的一个加上现在新改的一个），每列也会发生重复（原来的一个再加上现在新改的一个），每宫也是一样，所以能保证符合题目 Anti-Sudoku 的要求。</p>
+<p>我觉得这种方法最简单，不过 dalao 们改一些特定坐标的方法我也是同意的，不过觉得我这种做法更方便，毕竟思维难度、代码难度都低了嘛。</p>
 <h2 id="代码">代码</h2>
 <pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
  * You can download the binary file in here https://github.com/xalanq/cf-tool
