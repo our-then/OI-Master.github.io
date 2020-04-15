@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-14T11:58:18.444Z</updated>
+    <updated>2020-04-15T00:36:59.728Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -11,11 +11,62 @@
     <icon>https://OI-Master.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TianyuZhou</rights>
     <entry>
+        <title type="html"><![CDATA[Codeforces Contest 1324 C 题解]]></title>
+        <id>https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/</id>
+        <link href="https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/">
+        </link>
+        <updated>2020-04-14T00:28:06.000Z</updated>
+        <summary type="html"><![CDATA[<p>这一道题可以说把我的思维弄得乱七八糟，想出来正解后感觉自己实在是太蠢了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这一道题可以说把我的思维弄得乱七八糟，想出来正解后感觉自己实在是太蠢了。</p>
+<!-- more -->
+<h2 id="题面">题面</h2>
+<h3 id="英文题面">英文题面</h3>
+<p>上链接：<a href="https://codeforces.com/contest/1324/problem/C">https://codeforces.com/contest/1324/problem/C</a></p>
+<h3 id="中文题面">中文题面</h3>
+<p>现在河面上有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 块石头，编号 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mtext> </mtext><mi>n</mi></mrow><annotation encoding="application/x-tex">1~n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace nobreak"> </span><span class="mord mathdefault">n</span></span></span></span>块石头每块上有一个方向，如果是 <code>L</code>，那么青蛙到这块石头上之后只能往左跳，如果是 <code>R</code> 只能往右，当然，第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 块石头的方向是 <code>R</code>。<br>
+现在青蛙要从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 跳到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，请问他应该怎么跳才能让他跳跃过程中跳跃距离最长的最小呢？输出这个距离。</p>
+<h2 id="思路">思路</h2>
+<p>这道题是贪心的题目。我们发现，往左边跳其实并不划算，我们往左边跳的时候，距离就会更远，我们想跳的只是朝向右边的石头。这时候，这道题就很简单了，直接求出所有向右边的石头的坐标差，取其中最大值即可。</p>
+<h2 id="代码">代码</h2>
+<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
+ * You can download the binary file in here https://github.com/xalanq/cf-tool
+ * Author: OI_Master
+ * Time: 2020-04-15 00:06:42
+**/
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int t;
+	cin&gt;&gt;t;
+	while(t--){
+		string s;
+		cin&gt;&gt;s;
+		vector&lt;int&gt;v;
+		v.push_back(0);
+		for(int i=0;i&lt;s.size();++i)
+			if(s[i]=='R')
+				v.push_back(i+1);
+		v.push_back(s.size()+1);
+		int maxv=-1;
+		for(int i=1;i&lt;v.size();++i)
+			maxv=max(maxv,v[i]-v[i-1]);
+		cout&lt;&lt;maxv&lt;&lt;endl;
+	}
+	return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Codeforces Contest 1335 D 题解]]></title>
         <id>https://OI-Master.github.io/post/codeforces-contest-1335-d-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1335-d-ti-jie/">
         </link>
-        <updated>2020-04-13T08:58:10.000Z</updated>
+        <updated>2020-04-13T00:58:10.000Z</updated>
         <summary type="html"><![CDATA[<p>这可以说是我在这场比赛中看到的最简单的题目。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>这可以说是我在这场比赛中看到的最简单的题目。</p>
@@ -71,7 +122,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-shang-chuang-jian-mashup-bi-sai/</id>
         <link href="https://OI-Master.github.io/post/codeforces-shang-chuang-jian-mashup-bi-sai/">
         </link>
-        <updated>2020-04-11T13:12:19.000Z</updated>
+        <updated>2020-04-11T05:12:19.000Z</updated>
         <summary type="html"><![CDATA[<p>公开比赛必须要蓝名才能创建哦！Mashup 是私人比赛。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>公开比赛必须要蓝名才能创建哦！Mashup 是私人比赛。</p>
@@ -115,7 +166,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1099-c-ti-jie/">
         </link>
-        <updated>2020-04-09T20:29:10.000Z</updated>
+        <updated>2020-04-09T12:29:10.000Z</updated>
         <summary type="html"><![CDATA[<p>我又来写题解了！</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>我又来写题解了！</p>
@@ -289,7 +340,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1134-c-ti-jie/">
         </link>
-        <updated>2020-04-09T15:05:06.000Z</updated>
+        <updated>2020-04-09T07:05:06.000Z</updated>
         <summary type="html"><![CDATA[<p>这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>这一道题我昨天晚上做了很久，不过最后居然 AC 了。貌似大家都没有 AC 呀，我写一篇题解吧。</p>
@@ -356,7 +407,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/suan-fa-nao-tu/</id>
         <link href="https://OI-Master.github.io/post/suan-fa-nao-tu/">
         </link>
-        <updated>2020-04-07T02:12:28.000Z</updated>
+        <updated>2020-04-06T18:12:28.000Z</updated>
         <summary type="html"><![CDATA[<p>图片来源于网络，侵权删。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>图片来源于网络，侵权删。</p>
@@ -369,7 +420,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-contest-1102-b-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1102-b-ti-jie/">
         </link>
-        <updated>2020-04-06T21:38:05.000Z</updated>
+        <updated>2020-04-06T13:38:05.000Z</updated>
         <summary type="html"><![CDATA[<p>我又来写题解了，呵呵呵，最近沉迷于刷题、写题解，无法自拔……<br>
 好了，不说别的了，现在快点进入正题。</p>
 ]]></summary>
@@ -463,7 +514,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-contest-1010-b-and-1011-d-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-1010-b-and-1011-d-ti-jie/">
         </link>
-        <updated>2020-04-06T15:37:08.000Z</updated>
+        <updated>2020-04-06T07:37:08.000Z</updated>
         <summary type="html"><![CDATA[<p>不出你的意料，今天我又来写题解了（你可能会问我为什么还没有开学）。这一次我写的题解是一道交互题的题解，毕竟是第一次写这种交互题的题解，写得不太好请大家别太在意，您可以在评论区来留言，我会根据你的留言来完善一下本篇题解或是下一篇题解。<br>
 好的，我们仍然按照老配方，题面先。</p>
 ]]></summary>
@@ -552,7 +603,7 @@ signed main() {
         <id>https://OI-Master.github.io/post/codeforces-contest-262-b-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/codeforces-contest-262-b-ti-jie/">
         </link>
-        <updated>2020-04-06T10:26:38.000Z</updated>
+        <updated>2020-04-06T02:26:38.000Z</updated>
         <summary type="html"><![CDATA[<p>这道题是我下午做的，你在源代码里的 Time 就会发现。是的，没错，不过晚上我还要打一场虚拟。<br>
 貌似这道题洛谷没人写题解呀，我就把这个坑填上吧。</p>
 ]]></summary>
@@ -632,7 +683,7 @@ if(m&amp;1)
         <id>https://OI-Master.github.io/post/atcoder-abc-160-e-ti-jie/</id>
         <link href="https://OI-Master.github.io/post/atcoder-abc-160-e-ti-jie/">
         </link>
-        <updated>2020-04-06T02:03:42.000Z</updated>
+        <updated>2020-04-05T18:03:42.000Z</updated>
         <summary type="html"><![CDATA[<p>首先，感谢大佬 hhhyyyfff 和他的程序，它们开导了我的思路。好了，现在开始正题了，先讲一下题面。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>首先，感谢大佬 hhhyyyfff 和他的程序，它们开导了我的思路。好了，现在开始正题了，先讲一下题面。</p>
@@ -699,64 +750,6 @@ signed main(){
 }
 </code></pre>
 <p>本文到此结束，谢谢您的观看。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Codeforces Contest 32 D 题解]]></title>
-        <id>https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/</id>
-        <link href="https://OI-Master.github.io/post/codeforces-contest-32-d-ti-jie/">
-        </link>
-        <updated>2020-04-06T02:01:18.000Z</updated>
-        <summary type="html"><![CDATA[<p>早上六点打的虚拟比赛，差点 AK ，就差一个 E 题。最后发现 E 题不论是 洛谷 还是 Codeforces 都没有题解，而看 CF 正确的源代码又看不懂，我太难了……<br>
-题面请在洛谷里看，我这里不做介绍。<br>
-我们先讲思路吧。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>早上六点打的虚拟比赛，差点 AK ，就差一个 E 题。最后发现 E 题不论是 洛谷 还是 Codeforces 都没有题解，而看 CF 正确的源代码又看不懂，我太难了……<br>
-题面请在洛谷里看，我这里不做介绍。<br>
-我们先讲思路吧。</p>
-<!-- more -->
-<h2 id="思路">思路</h2>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 才 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>300</mn></mrow><annotation encoding="application/x-tex">300</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mord">0</span></span></span></span> ？那就写个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 算法。啪啪啪啪啪啪啪啪……咦？居然过<br>
-了？！<br>
-这道题的数据很小呢，所以发现这道题纯考你的手熟不熟，思维不难。<br>
-我们先枚举半径（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> ，从小到大），然后枚举行（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> ，从小到大），再枚举列（ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> ，还是从小到大），然后我们每次判断存不存在当中心点为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i, j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>，半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> 的十字形星座。如果有，那么就把总数加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。如果总数到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，那么我们就打印。<br>
-如果最后啥也没打出来（也就是说，总数小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>），那么就输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>。<br>
-如此简单，这上面就算是一种伪代码了（难道不是吗？</p>
-<h2 id="代码">代码</h2>
-<p>给上 C++ 实现的代码</p>
-<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
- * Author: OI_Master
- * Time: 2020-03-31 07:20:10
-**/
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-signed main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int n,m,k;
-    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;
-    char c[n+1][m+1];
-    for(int i=1;i&lt;=n;++i)
-    	for(int j=1;j&lt;=m;++j)
-    		cin&gt;&gt;c[i][j];
-    int num=0;
-    for(int r=1;r&lt;=min(n,m);++r)
-    	for(int i=r+1;i+r&lt;=n;++i)
-    		for(int j=r+1;j+r&lt;=m;++j)
-    			if(c[i][j]=='*'&amp;&amp;c[i-r][j]=='*'&amp;&amp;c[i+r][j]=='*'&amp;&amp;c[i][j-r]=='*'&amp;&amp;c[i][j+r]=='*'){
-    				if(num==k-1){
-    					cout&lt;&lt;i&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i-r&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i+r&lt;&lt;' '&lt;&lt;j&lt;&lt;endl&lt;&lt;i&lt;&lt;' '&lt;&lt;j-r&lt;&lt;endl&lt;&lt;i&lt;&lt;' '&lt;&lt;j+r&lt;&lt;endl;
-    					return 0;
-    				}
-    				else
-    					++num;
-    			}
-    cout&lt;&lt;-1&lt;&lt;endl;
-    return 0;
-}
-</code></pre>
-<p>本文到此结束。</p>
 ]]></content>
     </entry>
 </feed>
