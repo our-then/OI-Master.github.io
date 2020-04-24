@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-23T05:34:03.461Z</updated>
+    <updated>2020-04-24T05:23:57.407Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -21,9 +21,10 @@
         <content type="html"><![CDATA[<p>欢迎使用我的机器人—— 小T ！他是一个 QQ 机器人，加好友后可以跟它聊天，拉至群里且给它管理员的话可以帮你管理该群。</p>
 <!-- more -->
 <p>加好友的人请加这个 QQ ：3473979630 。临时会话是不会回答的。<br>
+机器人有两种内核，一种是小i机器人内核，一个是图灵机器人内核。小i内核相对稳定，直接私聊或在群里at它即可，或在消息前加上前缀“小T”。如果想用图灵机器人内核，需要在群聊里用，说“小T图灵机+你要说的话”才行哦！<br>
 如果出现问题，请联系我，联系方式为 QQ 。具体链接可以在我的博客主页上找到。<br>
 还有，请大家别坑他，因为它才出生，所以 Bug 还有很多。测试并上报没问题。<br>
-<strong>Update：由于一些原因，最近停止服务</strong></p>
+下面是问卷调查。</p>
 <iframe height="1200" width="800" src="https://wj.qq.com/s2/5924072/43d7/" frameborder="0" allowfullscreen></iframe>]]></content>
     </entry>
     <entry>
