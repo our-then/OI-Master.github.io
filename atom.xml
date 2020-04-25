@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-25T02:22:02.533Z</updated>
+    <updated>2020-04-25T02:27:14.811Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://OI-Master.github.io/post/guan-yu-di-er-chang-noi-online-neng-li-ce-shi-xiang-guan-shi-xiang-de-tong-zhi/</id>
         <link href="https://OI-Master.github.io/post/guan-yu-di-er-chang-noi-online-neng-li-ce-shi-xiang-guan-shi-xiang-de-tong-zhi/">
         </link>
-        <updated>2020-04-25T02:21:40.000Z</updated>
+        <updated>2020-04-24T11:21:40.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://OI-Master.github.io/post-images/1587781308899.png" alt="通知" loading="lazy"></figure>
 ]]></content>
     </entry>
