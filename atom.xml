@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-25T03:32:00.689Z</updated>
+    <updated>2020-04-26T06:45:24.893Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://OI-Master.github.io/images/avatar.png</logo>
     <icon>https://OI-Master.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TianyuZhou</rights>
+    <entry>
+        <title type="html"><![CDATA[时钟]]></title>
+        <id>https://OI-Master.github.io/post/shi-zhong/</id>
+        <link href="https://OI-Master.github.io/post/shi-zhong/">
+        </link>
+        <updated>2020-04-26T06:39:23.000Z</updated>
+        <content type="html"><![CDATA[<p>如果你也想在自己的博客上加上时钟，你可以使用下面的脚本（语言为 <code>HTML</code>）。</p>
+<pre><code class="language-html">&lt;iframe src=&quot;http://free.timeanddate.com/clock/i78bm2g7/n1934/szw110/szh110/hoc000/hbw4/cf100/hgr0/hcw2/fav0/fiv0/mqc000/mqs3/mql25/mqw2/mqd96/mhc000/mhs3/mhl20/mhw2/mhd96/mmc000/mms3/mml5/mmw2/mmd96/hhs2/hhw8/hms2/hmw8/hmr4/hsc000/hss3/hsl90&quot; frameborder=&quot;0&quot; width=&quot;110&quot; height=&quot;110&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<p>效果是这样的：</p>
+<iframe src="http://free.timeanddate.com/clock/i78bm2g7/n1934/szw110/szh110/hoc000/hbw4/cf100/hgr0/hcw2/fav0/fiv0/mqc000/mqs3/mql25/mqw2/mqd96/mhc000/mhs3/mhl20/mhw2/mhd96/mmc000/mms3/mml5/mmw2/mmd96/hhs2/hhw8/hms2/hmw8/hmr4/hsc000/hss3/hsl90" frameborder="0" width="110" height="110"></iframe><br>
+另外，感谢 timeanddate 网站，此时钟是建立在它的网站上的。]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[关于第二场NOI Online能力测试相关事项的通知]]></title>
         <id>https://OI-Master.github.io/post/guan-yu-di-er-chang-noi-online-neng-li-ce-shi-xiang-guan-shi-xiang-de-tong-zhi/</id>
@@ -530,95 +543,6 @@ signed main() {
 	cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;
 	for(int i=0;i&lt;n;++i)
 		cout&lt;&lt;a[i].b&lt;&lt;' ';
-	return 0;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Codeforces Contest 1010 B & 1011 D 题解]]></title>
-        <id>https://OI-Master.github.io/post/codeforces-contest-1010-b-and-1011-d-ti-jie/</id>
-        <link href="https://OI-Master.github.io/post/codeforces-contest-1010-b-and-1011-d-ti-jie/">
-        </link>
-        <updated>2020-04-06T07:37:08.000Z</updated>
-        <summary type="html"><![CDATA[<p>不出你的意料，今天我又来写题解了（你可能会问我为什么还没有开学）。这一次我写的题解是一道交互题的题解，毕竟是第一次写这种交互题的题解，写得不太好请大家别太在意，您可以在评论区来留言，我会根据你的留言来完善一下本篇题解或是下一篇题解。<br>
-好的，我们仍然按照老配方，题面先。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>不出你的意料，今天我又来写题解了（你可能会问我为什么还没有开学）。这一次我写的题解是一道交互题的题解，毕竟是第一次写这种交互题的题解，写得不太好请大家别太在意，您可以在评论区来留言，我会根据你的留言来完善一下本篇题解或是下一篇题解。<br>
-好的，我们仍然按照老配方，题面先。</p>
-<!-- more -->
-<h2 id="题面">题面</h2>
-<h3 id="英文题面">英文题面</h3>
-<p>如果你以前看过我写 Codeforces 的题解，你应该很清楚， <a href="https://codeforces.com/contest/1010/problem/B">这里</a>会挂个链接，而不会写题面。</p>
-<h3 id="中文题面">中文题面</h3>
-<p>请去 <a href="https://www.luogu.com.cn/problem/CF1010B">洛谷站内</a> 了解。嘿，有点过分，上次是直接复制洛谷的翻译，这次只给个链接？！是的，没错，翻译的很好，“抽风”这个词十分得恰当。</p>
-<h2 id="思路">思路</h2>
-<p>省掉了题面，这一篇文章短多了。我们首先假设，火箭不会抽风，那么你会怎么做？很显然，我们可以二分一下这个值，每次输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">mid</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span></span></span></span> ，看一下交互器的相应。<br>
-但是，事实上没有这么好，火箭随时可能抽风，那么假设我们知道抽风的序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> ，那么是不是这一道题也很简单？我们看见本轮火箭要抽风了，我们就把火箭的答案反转一下，也可以二分。<br>
-问题是，现在我们并不知道 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> ，那么怎么搞？等等，我们先放着。<br>
-我们可以先了解一下，二分至 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span> 要多少次。我们用 Python 求一下吧。</p>
-<pre><code class="language-python">tmp=1
-tot=0
-while tmp&lt;1000000000 :
-    tot+=1
-    tmp*=2
-print(tot)
-</code></pre>
-<p>输出了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span>，这时候我们貌似想到了什么……<br>
-我们惊讶地发现，火箭抽风的周期也是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span> ，加起来就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>60</mn></mrow><annotation encoding="application/x-tex">60</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">0</span></span></span></span> 次！<br>
-那么很显然，我们可以拿前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span> 次来确定火箭抽风的序列，然后把后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span> 次用来二分。这个想法实在是太好了！<br>
-还有，我们前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span> 次怎么确定？其实我们只需要一直输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 就可以了，如果它输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，那么本轮就不会抽风，如果是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span> ，那么就说明会抽风，如果是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ，那么数据太巧，要特判。<br>
-然后，就是可爱的代码啦。</p>
-<h2 id="代码">代码</h2>
-<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
- * You can download the binary file in here https://github.com/xalanq/cf-tool
- * Author: OI_Master
- * Time: 2020-04-07 07:13:12
-**/
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-signed main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n,m;
-	cin&gt;&gt;n&gt;&gt;m;
-	int a[m+1],tmp;
-	for(int i=1;i&lt;=m;++i){
-		cout&lt;&lt;1&lt;&lt;endl;
-		cout.flush();
-		cin&gt;&gt;tmp;
-		if(tmp==0)
-			return 0;
-		if(tmp==-2)
-			return 0;
-		if(tmp==1)
-			a[i]=1;
-		else
-			a[i]=0;
-	}
-	int left=2;
-	int right=n;
-	int mid;
-	int mod=0;
-	while(left&lt;=right){
-		++mod;
-		if(mod==m+1)
-			mod=1;
-		mid=(left+right)/2;
-		cout&lt;&lt;mid&lt;&lt;endl;
-		cout.flush();
-		cin&gt;&gt;tmp;
-		if(tmp==0)
-			return 0;
-		if(tmp==-2)
-			return 0;
-		if(a[mod]==0)
-			tmp=-tmp;
-		if(tmp==1)
-			left=mid+1;
-		else
-			right=mid-1;
 	return 0;
 }
 </code></pre>
