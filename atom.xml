@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-26T06:45:24.893Z</updated>
+    <updated>2020-04-26T07:37:32.178Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -16,7 +16,10 @@
         <link href="https://OI-Master.github.io/post/shi-zhong/">
         </link>
         <updated>2020-04-26T06:39:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>如果你也想在自己的博客上加上时钟，你可以使用下面的脚本（语言为 <code>HTML</code>）。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>如果你也想在自己的博客上加上时钟，你可以使用下面的脚本（语言为 <code>HTML</code>）。</p>
+<!-- more -->
 <pre><code class="language-html">&lt;iframe src=&quot;http://free.timeanddate.com/clock/i78bm2g7/n1934/szw110/szh110/hoc000/hbw4/cf100/hgr0/hcw2/fav0/fiv0/mqc000/mqs3/mql25/mqw2/mqd96/mhc000/mhs3/mhl20/mhw2/mhd96/mmc000/mms3/mml5/mmw2/mmd96/hhs2/hhw8/hms2/hmw8/hmr4/hsc000/hss3/hsl90&quot; frameborder=&quot;0&quot; width=&quot;110&quot; height=&quot;110&quot;&gt;&lt;/iframe&gt;
 </code></pre>
 <p>效果是这样的：</p>
