@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-28T01:04:59.225Z</updated>
+    <updated>2020-04-30T10:58:53.331Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -45,12 +45,38 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>欢迎使用我的机器人—— 小T ！他是一个 QQ 机器人，加好友后可以跟它聊天，拉至群里且给它管理员的话可以帮你管理该群。</p>
 <!-- more -->
-<p>加好友的人请加这个 QQ ：3473979630 。临时会话是不会回答的。<br>
-机器人有两种内核，一种是小i机器人内核，一个是图灵机器人内核。小i内核相对稳定，直接私聊或在群里at它即可，或在消息前加上前缀“小T”。如果想用图灵机器人内核，需要在群聊里用，说“小T图灵机+你要说的话”才行哦！<br>
-如果出现问题，请联系我，联系方式为 QQ 。具体链接可以在我的博客主页上找到。<br>
-还有，请大家别坑他，因为它才出生，所以 Bug 还有很多。测试并上报没问题。<br>
-下面是问卷调查。</p>
-<iframe height="1200" width="800" src="https://wj.qq.com/s2/5924072/43d7/" frameborder="0" allowfullscreen></iframe>]]></content>
+<p>加好友的人请加这个 QQ ：3473979630 。临时会话是不会回答的。</p>
+<p>机器人目前有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 种内核，一种是 小i机器人 内核，一个是 图灵机器人 内核，还有一种是 茉莉机器人 内核。小i内核相对稳定，直接私聊或在群里at它即可，或在消息前加上前缀“小T”。如果想用图灵机器人内核，需要在群聊里用，说“小T图灵机+你要说的话”才行哦！茉莉机器人有些 Bug ，常常出现答非所问的情况，所以暂时不用，等官方更新再说。<br>
+如果机器人崩溃或出现问题，请联系我，联系方式为 QQ 。具体链接可以在我的博客主页上找到。<br>
+目前机器人支持的功能有：</p>
+<ol>
+<li>闲聊</li>
+<li>点歌</li>
+<li>管理群聊</li>
+<li>翻译</li>
+<li>定时重启</li>
+<li>对对联</li>
+<li>查看撤回</li>
+<li>报时</li>
+<li>一言</li>
+<li>自定义问答</li>
+<li>学我说话</li>
+<li>中国象棋</li>
+<li>自动审核好友</li>
+</ol>
+<p>目前正在开发的功能有：</p>
+<ol>
+<li>服务器状态</li>
+<li>解方程</li>
+<li>KMZ</li>
+<li>远程关机</li>
+<li>回声</li>
+<li>复读机</li>
+<li>自我学习，修复漏洞</li>
+</ol>
+<p>这个机器人是2020年4月18日出生的，很小，大家别坑他哦！<br>
+好了，就这么多了，不说了不说了，我也要搞文化课了。。。。。。</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Codeforces Contest 1324 C 题解]]></title>
