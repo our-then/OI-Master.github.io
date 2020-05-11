@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://OI-Master.github.io</id>
     <title>TianyuZhou</title>
-    <updated>2020-04-30T10:58:53.331Z</updated>
+    <updated>2020-05-11T12:31:30.908Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://OI-Master.github.io"/>
     <link rel="self" href="https://OI-Master.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://OI-Master.github.io/images/avatar.png</logo>
     <icon>https://OI-Master.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TianyuZhou</rights>
+    <entry>
+        <title type="html"><![CDATA[我回来了]]></title>
+        <id>https://OI-Master.github.io/post/wo-hui-lai-liao/</id>
+        <link href="https://OI-Master.github.io/post/wo-hui-lai-liao/">
+        </link>
+        <updated>2020-05-11T12:20:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>RT，终于适应了开学的时候。我回来了，又来写文章了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>RT，终于适应了开学的时候。我回来了，又来写文章了。</p>
+<!-- more -->
+<p>另外，祝 <a href="https://www.luogu.com.cn/user/114320">connect</a> 大佬生快！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[时钟]]></title>
         <id>https://OI-Master.github.io/post/shi-zhong/</id>
@@ -32,7 +45,11 @@
         <link href="https://OI-Master.github.io/post/guan-yu-di-er-chang-noi-online-neng-li-ce-shi-xiang-guan-shi-xiang-de-tong-zhi/">
         </link>
         <updated>2020-04-24T11:21:40.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://OI-Master.github.io/post-images/1587781308899.png" alt="通知" loading="lazy"></figure>
+        <summary type="html"><![CDATA[<p>照搬CCF通知。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>照搬CCF通知。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://OI-Master.github.io/post-images/1587781308899.png" alt="通知" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
@@ -45,36 +62,10 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>欢迎使用我的机器人—— 小T ！他是一个 QQ 机器人，加好友后可以跟它聊天，拉至群里且给它管理员的话可以帮你管理该群。</p>
 <!-- more -->
-<p>加好友的人请加这个 QQ ：3473979630 。临时会话是不会回答的。</p>
-<p>机器人目前有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 种内核，一种是 小i机器人 内核，一个是 图灵机器人 内核，还有一种是 茉莉机器人 内核。小i内核相对稳定，直接私聊或在群里at它即可，或在消息前加上前缀“小T”。如果想用图灵机器人内核，需要在群聊里用，说“小T图灵机+你要说的话”才行哦！茉莉机器人有些 Bug ，常常出现答非所问的情况，所以暂时不用，等官方更新再说。<br>
+<p>加好友的人请加这个 QQ ：3473979630 。临时会话是不会回答的。<br>
 如果机器人崩溃或出现问题，请联系我，联系方式为 QQ 。具体链接可以在我的博客主页上找到。<br>
-目前机器人支持的功能有：</p>
-<ol>
-<li>闲聊</li>
-<li>点歌</li>
-<li>管理群聊</li>
-<li>翻译</li>
-<li>定时重启</li>
-<li>对对联</li>
-<li>查看撤回</li>
-<li>报时</li>
-<li>一言</li>
-<li>自定义问答</li>
-<li>学我说话</li>
-<li>中国象棋</li>
-<li>自动审核好友</li>
-</ol>
-<p>目前正在开发的功能有：</p>
-<ol>
-<li>服务器状态</li>
-<li>解方程</li>
-<li>KMZ</li>
-<li>远程关机</li>
-<li>回声</li>
-<li>复读机</li>
-<li>自我学习，修复漏洞</li>
-</ol>
-<p>这个机器人是2020年4月18日出生的，很小，大家别坑他哦！<br>
+机器人正在重构代码，全新升级中……<br>
+这个机器人是2020年4月18日出生的，很小，大家别坑他哦！<br>
 好了，就这么多了，不说了不说了，我也要搞文化课了。。。。。。</p>
 ]]></content>
     </entry>
@@ -481,100 +472,6 @@ signed main() {
         <content type="html"><![CDATA[<p>图片来源于网络，侵权删。</p>
 <!-- more -->
 <figure data-type="image" tabindex="1"><img src="https://OI-Master.github.io/post-images/1586225603861.png" alt="脑图" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Codeforces Contest 1102 B 题解]]></title>
-        <id>https://OI-Master.github.io/post/codeforces-contest-1102-b-ti-jie/</id>
-        <link href="https://OI-Master.github.io/post/codeforces-contest-1102-b-ti-jie/">
-        </link>
-        <updated>2020-04-06T13:38:05.000Z</updated>
-        <summary type="html"><![CDATA[<p>我又来写题解了，呵呵呵，最近沉迷于刷题、写题解，无法自拔……<br>
-好了，不说别的了，现在快点进入正题。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我又来写题解了，呵呵呵，最近沉迷于刷题、写题解，无法自拔……<br>
-好了，不说别的了，现在快点进入正题。</p>
-<!-- more -->
-<h2 id="题面">题面</h2>
-<h3 id="英文题面">英文题面</h3>
-<p>这里从来不会出现英文题面的好吗，需要你去 <a href="http://codeforces.com/problemset/problem/1102/B">这里</a> 看的。</p>
-<h3 id="中文题面">中文题面</h3>
-<p>写完今早的题解后，我想了想，决定还是把题目的意思放出来，能节约大家的时间。<br>
-给出一个长为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 种颜色,用这 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 种颜色给 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 中的元素染色，要求：</p>
-<ul>
-<li>每个元素都要被染色</li>
-<li>每种颜色都要被使用</li>
-<li>每种颜色不会被用于相同的元素（即若颜色 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub><mo>=</mo><msub><mi>c</mi><mi>j</mi></msub><mo>(</mo><mi>i</mi><mi mathvariant="normal">≠</mi><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">c_i = c_j(i \neq j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> ，必须保证 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mi mathvariant="normal">≠</mi><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">a_i \neq a_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>）</li>
-</ul>
-<p>如果没有可行的方案，输出 <code>NO</code> ,否则输出 <code>YES</code> 和任何一种可行的方案。</p>
-<h2 id="思路">思路</h2>
-<p>首先先膜拜一下大佬 xyf007 ，他写的这篇洛谷题解引发了我的思路（虚拟赛后看见的，大家别以为我作弊），然后我想了想，决定写一下这篇题解。<br>
-我们这道题的确完全不用各种各样的高级算法，什么桶排序、什么双指针、什么vis数组，都不要，我们只要结构体，一个变量 <code>num</code> ，就可以做了。<br>
-如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n&lt;k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的话，肯定用不完所有的数字，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>。<br>
-我们首先判断是否有数字出现次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&gt;</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">&gt;k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> ，如果有，那么一定不行的。<br>
-如果没有，那么一定行。我们像这样填色。</p>
-<ul>
-<li>先将数组按照大小排序</li>
-<li>然后让一个变量 <code>num</code> 来从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 循环，到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 就把它赋值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
-<li>轮流填， <code>num</code> 是多少就填多少。</li>
-</ul>
-<p>想想，为什么这样子可以？<br>
-然后就十分简单，我们按照原始数列的编号排个序，输出即可。</p>
-<h2 id="代码">代码</h2>
-<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
- * You can download the binary file in here https://github.com/xalanq/cf-tool
- * Author: OI_Master
- * Time: 2020-04-07 11:06:01
-**/
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-struct node{
-	int id,val,b;
-};
-bool cmp1(node x,node y){
-	return x.val&lt;y.val;
-}
-bool cmp2(node x,node y){
-	return x.id&lt;y.id;
-}
-signed main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n,k;
-	cin&gt;&gt;n&gt;&gt;k;
-	if(n&lt;k){
-		cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
-		return 0;
-	}
-	node a[n];
-	int b[5001];
-	for(int i=1;i&lt;=5000;++i)
-		b[i]=0;
-	for(int i=0;i&lt;n;++i){
-		a[i].id=i;
-		cin&gt;&gt;a[i].val;
-		++b[a[i].val];
-		if(b[a[i].val]&gt;k){
-			cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;
-			return 0;
-		}
-	}
-	sort(a,a+n,cmp1);
-	int num=1;
-	for(int i=0;i&lt;n;++i){
-		a[i].b=num;
-		++num;
-		if(num==k+1)
-			num=1;
-	}
-	sort(a,a+n,cmp2);
-	cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;
-	for(int i=0;i&lt;n;++i)
-		cout&lt;&lt;a[i].b&lt;&lt;' ';
-	return 0;
-}
-</code></pre>
 ]]></content>
     </entry>
 </feed>

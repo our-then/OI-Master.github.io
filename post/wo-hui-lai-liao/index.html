@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Atcoder AGC 043 A 题解
+                                我回来了
                             </h1>
                             
                                     <!--zh-->
@@ -182,19 +182,15 @@
                                         <a itemprop="author" rel="author" href="/">
                                             TianyuZhou
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-03-22</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-05-11</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">5.1
+                                    href="#">0.1
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1212</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">29</a></span>
                                         
                                             <span class="post-category">&#x5206;&#x7C7B;:
                                 
-                                <a href="https://OI-Master.github.io/tag/C7_efPeUs/">Atcoder</a>
-                                
-                                <a href="https://OI-Master.github.io/tag/XDNpW9w8i/">题解</a>
-                                
-                                <a href="https://OI-Master.github.io/tag/QTCptIBFw/">编程</a>
+                                <a href="https://OI-Master.github.io/tag/R_hw4bqBy/">闲扯</a>
                                 
                             </span>
                                             
@@ -205,108 +201,14 @@
                                     
                         </header>
                         <div class="post-content">
-                            <p>这道题把我坑的无话可说，实在是服了这个做法。动态规划！当时没想出来，现在想想，感觉自己理解得差不多了……好了，回归正题，我们先按照老配方——题面先。</p>
+                            <p>RT，终于适应了开学的时候。我回来了，又来写文章了。</p>
 <!-- more -->
-<h2 id="题面">题面</h2>
-<h3 id="英文题面">英文题面</h3>
-<p>请你走 <a href="https://atcoder.jp/contests/agc043/tasks/agc043_a">这里</a> ，会带你去 Atcoder 官网。</p>
-<h3 id="中文题面">中文题面</h3>
-<p>这道题大意是这样的：<br>
-给你一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H\times W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span></span></span></span> 的迷宫，其中，“.”代表空地，“#”代表墙。现在，让你从左上角的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(1, 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 走到右下角的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>H</mi><mo separator="true">,</mo><mi>W</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(H, W)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span></span></span></span> ，只能走右边或下面。不过，这与往常的题目不一样，不是问你最少要走多少步，也不是有几种走法。其实，这个迷宫可能不同，现在给你一个条件，就是选择一个矩阵，把这个区域内的所有的空地转成墙，墙转成空地。问你最少要多少个操作才能保证能同行。</p>
-<h2 id="思路">思路</h2>
-<p>这道题，我们先看枚举。枚举什么呢？枚举操作次数，然后在嵌套一个枚举在哪里操作？答案是完美的，不会错，但是你不用写了，一定会超时。<br>
-然后，我们考虑贪心。如何贪心？这仍然是个问题。好像贪心很难想全，情况较多。那么引用一位学长的话，叫做：</p>
-<blockquote>
-<p>贪心不行就 DP 。</p>
-</blockquote>
-<p>好的，<s>为了验证这句话的正确性</s>，我们就做一下 DP 吧。不过，这道题的 DP 状态转移方程有点难想，显然，状态较多，一不小心套个四重循环就会爆（其实不一定，不过估计评测机不是用现在的高级 CPU，而是像 CCF 统一评测老爷机来评测的，最好不要冒这个险），所以，这个 DP 又是一个难写的 DP 啊，不好想。<br>
-卡在这里显然不太合适，我们先看一下要你写的代码吧，从微观开始讲。先提前说一下，这个代码不是本人自己写的，而是一位大佬 hhhyyyfff 写的，在此先膜拜一下。</p>
-<pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-
-using namespace std;
-
-char s[110][110];
-int H, W, f[110][110];
-
-int main() {
-    scanf(&quot;%d%d&quot;, &amp;H, &amp;W);
-    for (int i = 1; i &lt;= H; ++i) scanf(&quot;%s&quot;, s[i] + 1);
-
-    f[1][1] = s[1][1] == '#';
-    for (int i = 2; i &lt;= W; ++i)
-        f[1][i] = f[1][i - 1] + (s[1][i - 1] == '.' &amp;&amp; s[1][i] == '#');
-    for (int i = 2; i &lt;= H; ++i)
-        f[i][1] = f[i - 1][1] + (s[i - 1][1] == '.' &amp;&amp; s[i][1] == '#');
-    for (int i = 2; i &lt;= H; ++i)
-        for (int j = 2; j &lt;= W; ++j)
-            f[i][j] = min(f[i - 1][j] + (s[i - 1][j] == '.' &amp;&amp; s[i][j] == '#'),
-                          f[i][j - 1] + (s[i][j - 1] == '.' &amp;&amp; s[i][j] == '#'));
-    printf(&quot;%d\n&quot;, f[H][W]);
-    return 0;
-}
-</code></pre>
-<p>首先，读入没什么难的事情了，主要就是后面的 DP 。<br>
-第一行与第一列的初始化大家应该也能看得懂，知道这是什么意思。唯独后面的条件是什么意思还不知道。待会我会解释的，您们放心。<br>
-然后，就是主要的 DP 了，发现仍然很简单。当你不看后面那个 <code>(s[i - 1][j] == '.' &amp;&amp; s[i][j] == '#')</code> 时，你一定会尖叫：</p>
-<blockquote>
-<p>这个 DP 太土了！比 <a href="https://www.luogu.com.cn/problem/P1006">传纸条</a> 还简单呐！</p>
-</blockquote>
-<p>看来，主要的核心就在那一个表达式上面了。表达式的意思是，这个点要不要再翻一次，对不对？这是显而易见的。<br>
-首先，如果这个点不是墙，那么小表达式的值一定为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 。<br>
-我们来看看，如果上一步是从上方走下来的，且上方是个墙，那么要不要翻？显然，上边翻的时候，把这一格的墙也同时翻掉了，所以，不用再翻。但是如果上面一格是空地呢？说明没有翻到这个墙，这个墙还要再翻一次。<br>
-左边的也是对称的。<br>
-嘿，让我们往宏观走走。这个 DP 十分巧妙，在记录最少的翻的次数时，顺便就把翻的标记也延续下来了。十分有意思，也很巧妙。</p>
-<h2 id="代码">代码</h2>
-<p>还是刚刚的代码。<br>
-还是 stO hhhyyyfff Orz 。</p>
-<pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-
-using namespace std;
-
-char s[110][110];
-int H, W, f[110][110];
-
-int main() {
-    scanf(&quot;%d%d&quot;, &amp;H, &amp;W);
-    for (int i = 1; i &lt;= H; ++i) scanf(&quot;%s&quot;, s[i] + 1);
-
-    f[1][1] = s[1][1] == '#';
-    for (int i = 2; i &lt;= W; ++i)
-        f[1][i] = f[1][i - 1] + (s[1][i - 1] == '.' &amp;&amp; s[1][i] == '#');
-    for (int i = 2; i &lt;= H; ++i)
-        f[i][1] = f[i - 1][1] + (s[i - 1][1] == '.' &amp;&amp; s[i][1] == '#');
-    for (int i = 2; i &lt;= H; ++i)
-        for (int j = 2; j &lt;= W; ++j)
-            f[i][j] = min(f[i - 1][j] + (s[i - 1][j] == '.' &amp;&amp; s[i][j] == '#'),
-                          f[i][j - 1] + (s[i][j - 1] == '.' &amp;&amp; s[i][j] == '#'));
-    printf(&quot;%d\n&quot;, f[H][W]);
-    return 0;
-}
-</code></pre>
-<p>本文到此结束。</p>
+<p>另外，祝 <a href="https://www.luogu.com.cn/user/114320">connect</a> 大佬生快！</p>
 
                         </div>
                         
                             <div class="post-toc">
-                                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E9%A2%98%E9%9D%A2">题面</a>
-<ul>
-<li><a href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2">英文题面</a></li>
-<li><a href="#%E4%B8%AD%E6%96%87%E9%A2%98%E9%9D%A2">中文题面</a></li>
-</ul>
-</li>
-<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
-</ul>
-</li>
-</ul>
-
+                                
                             </div>
                             
                                 
@@ -320,7 +222,7 @@ int main() {
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://OI-Master.github.io/post/atcoder-agc-043-a-ti-jie/">https://OI-Master.github.io/post/atcoder-agc-043-a-ti-jie/</a></span>
+                                                    <span><a href="https://OI-Master.github.io/post/wo-hui-lai-liao/">https://OI-Master.github.io/post/wo-hui-lai-liao/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -335,10 +237,10 @@ int main() {
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/atcoder-agc-043-a-ti-jie/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/atcoder-agc-043-a-ti-jie/&sharesource=qzone&title=Atcoder AGC 043 A 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1589200284486&summary=&lt;p&gt;这道题把我坑的无话可说，实在是服了这个做法。动态规划！当时没想出来，现在想想，感觉自己理解得差不多了……好了，回归正题，我们先按照老配方——题面先。&lt;/p&gt;
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/wo-hui-lai-liao/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/wo-hui-lai-liao/&sharesource=qzone&title=我回来了&pics=https://OI-Master.github.io/images/avatar.png?v=1589200284486&summary=&lt;p&gt;RT，终于适应了开学的时候。我回来了，又来写文章了。&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/atcoder-agc-043-a-ti-jie/&sharesource=weibo&title=Atcoder AGC 043 A 题解 + " - " + &lt;p&gt;这道题把我坑的无话可说，实在是服了这个做法。动态规划！当时没想出来，现在想想，感觉自己理解得差不多了……好了，回归正题，我们先按照老配方——题面先。&lt;/p&gt;
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/wo-hui-lai-liao/&sharesource=weibo&title=我回来了 + " - " + &lt;p&gt;RT，终于适应了开学的时候。我回来了，又来写文章了。&lt;/p&gt;
 &pic="https://OI-Master.github.io/images/avatar.png?v=1589200284486 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
@@ -358,16 +260,8 @@ int main() {
                                                                                     <span class="tag ">
                         
                         
-                        <a href="https://OI-Master.github.io/tag/C7_efPeUs/">#
-                    Atcoder
-                        </a>
-                        
-                        <a href="https://OI-Master.github.io/tag/XDNpW9w8i/">#
-                    题解
-                        </a>
-                        
-                        <a href="https://OI-Master.github.io/tag/QTCptIBFw/">#
-                    编程
+                        <a href="https://OI-Master.github.io/tag/R_hw4bqBy/">#
+                    闲扯
                         </a>
                         
                             
@@ -385,13 +279,9 @@ int main() {
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://OI-Master.github.io/post/luo-gu-shi-lian-chang/">
-                                                                                            洛谷试炼场
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/codeforces-contest-1299-a-and-1300-c-ti-jie/">
-                                                                                                    Codeforces Contest 1299 A &amp; 1300 C 题解
+                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/shi-zhong/">
+                                                                                                    时钟
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
