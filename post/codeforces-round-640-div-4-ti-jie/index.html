@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Codeforces Contest 1324 C 题解
+                                Codeforces Round #640 (Div. 4) 题解
                             </h1>
                             
                                     <!--zh-->
@@ -182,11 +182,11 @@
                                         <a itemprop="author" rel="author" href="/">
                                             TianyuZhou
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-04-14</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-05-11</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">1.7
+                                    href="#">0.1
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">390</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">16</a></span>
                                         
                                             <span class="post-category">&#x5206;&#x7C7B;:
                                 
@@ -205,66 +205,13 @@
                                     
                         </header>
                         <div class="post-content">
-                            <p>这一道题可以说把我的思维弄得乱七八糟，想出来正解后感觉自己实在是太蠢了。</p>
+                            <p>文化课，没时间写，只能录视频了，请原谅。</p>
 <!-- more -->
-<h2 id="题面">题面</h2>
-<h3 id="英文题面">英文题面</h3>
-<p>上链接：<a href="https://codeforces.com/contest/1324/problem/C">https://codeforces.com/contest/1324/problem/C</a></p>
-<h3 id="中文题面">中文题面</h3>
-<p>现在河面上有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 块石头，编号 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mtext> </mtext><mi>n</mi></mrow><annotation encoding="application/x-tex">1~n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace nobreak"> </span><span class="mord mathdefault">n</span></span></span></span>块石头每块上有一个方向，如果是 <code>L</code>，那么青蛙到这块石头上之后只能往左跳，如果是 <code>R</code> 只能往右，当然，第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 块石头的方向是 <code>R</code>。<br>
-现在青蛙要从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 跳到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，请问他应该怎么跳才能让他跳跃过程中跳跃距离最长的最小呢？输出这个距离。</p>
-<h2 id="思路">思路</h2>
-<p>这道题是贪心的题目。我们发现，往左边跳其实并不划算，我们往左边跳的时候，距离就会更远，我们想跳的只是朝向右边的石头。这时候，这道题就很简单了，直接求出所有向右边的石头的坐标差，取其中最大值即可。</p>
-<h2 id="代码">代码</h2>
-<pre><code class="language-cpp">/* Generated by powerful Codeforces Tool
- * You can download the binary file in here https://github.com/xalanq/cf-tool
- * Author: OI_Master
- * Time: 2020-04-15 00:06:42
-**/
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-signed main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int t;
-	cin&gt;&gt;t;
-	while(t--){
-		string s;
-		cin&gt;&gt;s;
-		vector&lt;int&gt;v;
-		v.push_back(0);
-		for(int i=0;i&lt;s.size();++i)
-			if(s[i]=='R')
-				v.push_back(i+1);
-		v.push_back(s.size()+1);
-		int maxv=-1;
-		for(int i=1;i&lt;v.size();++i)
-			maxv=max(maxv,v[i]-v[i-1]);
-		cout&lt;&lt;maxv&lt;&lt;endl;
-	}
-	return 0;
-}
-</code></pre>
-
+<iframe src="https://www.bilibili.com/video/bv1h541147CZ" width="800" height="800"></iframe>
                         </div>
                         
                             <div class="post-toc">
-                                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E9%A2%98%E9%9D%A2">题面</a>
-<ul>
-<li><a href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2">英文题面</a></li>
-<li><a href="#%E4%B8%AD%E6%96%87%E9%A2%98%E9%9D%A2">中文题面</a></li>
-</ul>
-</li>
-<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
-</ul>
-</li>
-</ul>
-
+                                
                             </div>
                             
                                 
@@ -278,7 +225,7 @@ signed main() {
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/">https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/</a></span>
+                                                    <span><a href="https://OI-Master.github.io/post/codeforces-round-640-div-4-ti-jie/">https://OI-Master.github.io/post/codeforces-round-640-div-4-ti-jie/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -293,10 +240,10 @@ signed main() {
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/&sharesource=qzone&title=Codeforces Contest 1324 C 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1589202649816&summary=&lt;p&gt;这一道题可以说把我的思维弄得乱七八糟，想出来正解后感觉自己实在是太蠢了。&lt;/p&gt;
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://OI-Master.github.io/post/codeforces-round-640-div-4-ti-jie/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://OI-Master.github.io/post/codeforces-round-640-div-4-ti-jie/&sharesource=qzone&title=Codeforces Round #640 (Div. 4) 题解&pics=https://OI-Master.github.io/images/avatar.png?v=1589202649816&summary=&lt;p&gt;文化课，没时间写，只能录视频了，请原谅。&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/codeforces-contest-1324-c-ti-jie/&sharesource=weibo&title=Codeforces Contest 1324 C 题解 + " - " + &lt;p&gt;这一道题可以说把我的思维弄得乱七八糟，想出来正解后感觉自己实在是太蠢了。&lt;/p&gt;
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://OI-Master.github.io/post/codeforces-round-640-div-4-ti-jie/&sharesource=weibo&title=Codeforces Round #640 (Div. 4) 题解 + " - " + &lt;p&gt;文化课，没时间写，只能录视频了，请原谅。&lt;/p&gt;
 &pic="https://OI-Master.github.io/images/avatar.png?v=1589202649816 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
@@ -343,13 +290,9 @@ signed main() {
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://OI-Master.github.io/post/ji-qi-ren-xiao-t/">
-                                                                                            机器人小T
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/codeforces-contest-1335-d-ti-jie/">
-                                                                                                    Codeforces Contest 1335 D 题解
+                                                                                                <a class="next" rel="next" href="https://OI-Master.github.io/post/wo-hui-lai-liao/">
+                                                                                                    我回来了
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
